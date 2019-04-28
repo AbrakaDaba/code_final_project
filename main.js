@@ -1,12 +1,4 @@
-//$.ajax({
-//    url: //'https://raw.githubusercontent.com/Danilovesovic/shop/master/s//hop.json',
-//    type: 'get',
-//    dataType: 'json'
-//  })
-//  .done(function(res) {
-//    startApp(res)
-//  })
-//
+ 
 
 window.onload = function() {
   window.addEventListener("beforeunload", function(){
