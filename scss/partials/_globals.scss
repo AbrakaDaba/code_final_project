@@ -1,0 +1,86 @@
+:root {
+  --my-bg-main: rgb(83, 110, 136);
+  --my-body-bg: linear-gradient(to right bottom, var(--my-bg-main) 0%, var(--my-bg-second) 100%) 100% center no-repeat;
+  --my-bg-img: url(".././img/world-globe.jpg");
+  --my-bg-color: #126ec3;
+  --my-bg-second: rgb(71, 71, 95);
+  --my-shape: 0%; 
+  --font-heading: juliussans;
+  --font-paragraph: coves;
+  transition: 3s; 
+}
+
+html {
+  // height: 100vh;
+}
+h3{
+  // font-size: 2.5em;
+}
+body {
+  padding-top: 70px;
+  height: 100%;
+  font-size: 12px;
+  font-family: sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  background: var(--my-body-bg);
+  user-select: none;
+  transition: background-color 2s cubic-bezier(1, 1, 1, 1);
+  transition-delay: 0s;
+
+  * {
+    margin: 0;
+    transition: all .25s cubic-bezier(0.37, 0.31, 0.2, 0.85);
+    box-sizing: border-box;
+  }
+
+  #background-box {
+    background-image: url(./../img/shadow.png);
+    background-position: right 67px;
+    background-attachment: fixed;
+    background-size: contain;
+    overflow: auto;
+    background-repeat: no-repeat;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#home-page,
+#works,
+#skills,
+#about {
+  min-height: 100vh;
+  border-bottom: 5px solid var(--my-bg-second);
+}
+
+.current {
+  display: block;
+  opacity: 1
+}
+
+.divider {
+  width: 50%;
+
+  height: 2px;
+  background: var(--my-bg-main);
+}
+
+// .hidden{
+//   display: none;
+//   opacity: 0;
+// }
+
+#speech-bubble{
+  background-image: url(./../../img/speech-bubble.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  width: 135px;
+  height: 93px;
+  right: 58px;
+  top: 9px;
+}

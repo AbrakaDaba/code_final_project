@@ -1,0 +1,29 @@
+  
+  #gradients *, #patterns *{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-size: 45px;
+    background-position: center center;
+  }
+  
+  .linear_ltr{
+    background: linear-gradient(to right, var(--my-bg-main) 0%, var(--my-bg-second) 100%) 100% center no-repeat!important;
+  }
+  .linear_ttb{
+    background: linear-gradient(to bottom, var(--my-bg-main) 0%, var(--my-bg-second) 100%) 100% center no-repeat!important;
+  }
+  .linear_tltbr{
+    background: linear-gradient(to right bottom, var(--my-bg-main) 0%, var(--my-bg-second) 100%) 100% center no-repeat!important;
+  }
+  .linear_trtbl{
+    background: linear-gradient(to left bottom, var(--my-bg-main) 0%, var(--my-bg-second) 100%) 100% center no-repeat!important;
+  }
+  .radial{
+    background: radial-gradient(var(--my-bg-main) 0%, var(--my-bg-second) 100%) 100% center no-repeat!important;
+  }
+  
+  // https://www.heropatterns.com/
+  // https://stackoverflow.com/questions/2504071/how-do-i-combine-a-background-image-and-css3-gradient-on-the-same-element
+  

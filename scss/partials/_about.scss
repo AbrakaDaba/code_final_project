@@ -1,0 +1,72 @@
+#about{
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--my-bg-second);
+  &> div{
+    font-size: 1.5em;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .photo{    
+    max-height: 100vh;
+    position: relative;
+    width: calc(100% - 0px);
+    overflow: hidden;
+    background-image: url(./../img/abrakaDaba.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: var(--my-bg-second);
+    background-size: cover;
+    padding-bottom: 120%;
+    box-shadow: inset 0px 0px 85px rgba(0,0,0,0.5);
+    .fire{
+    display: none;
+    position: absolute;
+    bottom: 2px;
+    left: 30%;
+    width: 35%;
+    height: 15%;
+    background-image: url(./../img/fire2.gif);
+    z-index: 1000;
+    background-size: 150% 70%;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    border-radius: 0 0 55% 55%;
+    }
+&:hover{
+  background-image: url("./../img/magic_bean_by_David.jpg");
+  background-position: center 5%;
+  .fire{
+    display: block;
+  }
+}
+  }
+  .aboutme{ 
+    padding: 30px;
+color: var(--my-text);
+box-sizing: border-box;
+h3{
+  margin-bottom: 0.7em;
+  font-size: 1.5em;
+}
+  }
+}
+  
+.photo:hover{
+  background-image: url("./../img/magic_bean_by_David.jpg");
+  .fire{
+    display: block;
+  }
+}
+  
+ 
+  
+  .custom-nav {
+    position: relative;
+  }
+  
+ 
+  
+  

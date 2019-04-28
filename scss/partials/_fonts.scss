@@ -1,0 +1,110 @@
+@font-face {
+    font-family: aquatico;
+    src: url(./../fonts/Aquatico-Regular.otf);
+  }
+  .font-aquatico{
+    font-family: aquatico; 
+  }
+
+  @font-face {
+    font-family: benchnine;
+    src: url(./../fonts/BenchNine-Regular.ttf);
+  }
+  .font-benchnine{
+    font-family: benchnine;
+  }
+ 
+  @font-face {
+    font-family: capriola;
+    src: url(./../fonts/Capriola-Regular.ttf);
+  }
+  .font-capriola{
+    font-family: capriola;
+  }
+
+  @font-face {
+    font-family: coldiac;
+    src: url(./../fonts/Coldiac.ttf);
+  }
+  .font-coldiac{
+    font-family: coldiac;
+  }
+
+  @font-face {
+    font-family: coves;
+    src: url(./../fonts/Coves.otf);
+  }
+  .font-coves{
+    font-family: coves;
+  }
+
+  @font-face {
+    font-family: heebo;
+    src: url(./../fonts/Heebo-Regular.ttf);
+  }
+  .font-heebo{
+    font-family: heebo;
+  }
+
+  @font-face {
+    font-family: juliussans;
+    src: url(./../fonts/JuliusSansOne-Regular.ttf);
+  }
+  .font-juliussans{
+    font-family: juliussans;
+  }
+
+  @font-face {
+    font-family: montserrat;
+    src: url(./../fonts/MontserratAlternates-Regular.ttf);
+  }
+  .font-montserrat{
+    font-family: montserrat;
+  }
+
+  @font-face {
+    font-family: ntr;
+    src: url(./../fonts/NTR-Regular.ttf);
+  }
+  .font-ntr{
+    font-family: ntr;
+  }
+
+  @font-face {
+    font-family: orbitron;
+    src: url(./../fonts/Orbitron-Regular.ttf);
+  }
+  .font-orbitron{
+    font-family: orbitron;
+  }
+
+  @font-face {
+    font-family: philosopher;
+    src: url(./../fonts/Philosopher-Regular.ttf);
+  }
+  .font-philosopher{
+    font-family: philosopher;
+  }
+
+  @font-face {
+    font-family: tangerine;
+    src: url(./../fonts/Tangerine-Regular.ttf);
+  }
+  .font-tangerine{
+    font-family: tangerine;
+  }
+
+  @font-face {
+    font-family: basier;
+    src: url(./../fonts/basiercircle-regular-webfont.woff);
+  }
+  .font-basier{
+    font-family: basier;
+  }
+.my-heading-font{
+  font-family: var(--font-heading);
+}
+  
+.my-text-font{
+  font-family: var(--font-paragraph);
+}

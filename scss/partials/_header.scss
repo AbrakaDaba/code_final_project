@@ -1,0 +1,88 @@
+header, #headerHelper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 15px 0 15px;
+    height: 70px;
+    background-color: var(--my-bg-second);
+    color: #fff; 
+    // transition: background-color 2s;
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+      padding: 0;
+      margin: 0;
+  
+      .my-logo {
+        background-image: url('.././img/david_damnjanovic_logo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    box-shadow: 0 0 15px var(--my-bg-second);
+    width: 47px;
+    height: 47px;
+        z-index: 5;
+      }
+  
+      a {
+        font-size: 15px; 
+        text-decoration: none;
+        color: inherit;
+        z-index: 10;
+        position: relative;
+        font-weight: 700;
+      }
+    }
+  }
+  
+  header{
+    background: none; 
+    position: fixed;
+    z-index: 1010;
+  }
+  
+  #headerHelper { 
+    top: -70px;
+    position: fixed;
+    z-index: 2;  
+  }
+  #headerHelper.header-helper2 { 
+    box-shadow: 1px 2px 3px rgba(0,0,0,.7);
+    top: 0;
+  }
+  .my-logo {
+    background-image: url('.././img/david_damnjanovic_logo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    box-shadow: 0 0 3px rgba(0,0,0,.7);
+    // border-radius: 50%;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // width: 5.5em;
+    // height: 5.5em;
+    // position: absolute;
+    // z-index: 5;
+    // -webkit-transform: translate(-50%, -50%);
+    // -moz-transform: translate(-50%, -50%);
+    // -ms-transform: translate(-50%, -50%);
+    // -o-transform: translate(-50%, -50%);
+    // -webkit-border-radius: 50%;
+    // -moz-border-radius: 50%;
+    // -ms-border-radius: 50%;
+    // -o-border-radius: 50%;
+    cursor: pointer;
+  
+    &:hover {
+      background-image: url('.././img/david_damnjanovic_logo6w.svg');
+    }
+  }
+  
+  .my-logo2 {
+    display: none;
+  }

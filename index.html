@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/david_damnjanovic_logo.png">
+    <link rel="stylesheet" href="./scss/main.css">
+    <title>circle menu</title>
+</head>
+
+<body class="stripes">
+    <!-- onmousemove="contraDirection(event)" -->
+    <!-- <div id="speech-bubble"></div> -->
+    <div id="background-box">
+
+        <header id="myHeader">
+            <nav>
+                <ul>
+                    <li class="my-logo" id="my-logo" alt="David Damnjanovic" title="David Damnjanovic"></li>
+
+                    <!-- <li><a href="">Portfolio</a></li> -->
+
+                    <li><a href="#about" class="about my-text-font">About</a></li>
+                </ul>
+            </nav>
+            <div id="headerHelper" class=""></div>
+        </header>
+        <div id="home-page" class="current hidden">
+            <!-- <div id="rotator"></div> -->
+            <div class="welcome-note">
+                <h2 class="my-heading-font"><span class="shaking-text">Hey,</span><br><span class="shaking-text">I'm
+                        David Damnjanovic</span><br>Front-end Developer From Serbia</h2>
+            </div>
+            <!-- <p id="intro">This could be a cliche, you visite my personal portfolio website(PPWS :)), ahamm, where are projects? Ok! Here they are! Let me see, and where are skills, aham, ok, here they are! There is some CV, Contacts. Nice, I'll contact this guy! I like'im! Or you don't like my PPWS? Great! <span title="In matters of taste, there can be no disputes">"Dei Gusti non si discute!" </span> say Italians. Simply change it with few clicks, and when you transform it to some beautiful PPWS, just contact me! ;)"</p> -->
+            <p class="my-text-font" id="intro">I hope this isn't going to be a cliche, you visite my Personal Portfolio
+                Website (PPW, i've just invented this acronym :)), Let's see, where are projects? Ok! <span>Here</span>
+                they are! Let me see, and where are skills, ahamm, ok, <span>Here</span> they are! There is some
+                <span><a href="pdf/cv_david_damnjanovic_feb_2019.pdf" target="_blank">CV</a></span>, <span>about
+                    David</span>. Nice, I'll contact this guy! I like him!</br></br> I would be very happy if you
+                dislike my PPW? Great! <i title="In matters of taste, there can be no disputes">"Dei Gusti non si
+                    discute!" </i> say Italians. Simply <span>CHANGE IT</span> with few clicks, and when you transform
+                it to some beautiful PPW, just... <span><a class="social-link__url"
+                        href="mailto:daviddamnjan@gmail.com">contact</a></span> me! ;)"</p>
+            <span></span>
+
+            <!-- <div class="like-btns">
+              <button class="welcome-note"></button><button class="welcome-note"></button>
+          </div> -->
+
+            <!-- <div class="custom-nav">
+                <div class="my-logo my-logo2"></div>
+                <div class="main-circle" id="main-circle">
+                    <div class="menu-item menu-item1"><a href="">Home</a></div>
+                    <div class="menu-item menu-item2"><a href="">Contact</a></div>
+                    <div class="menu-item menu-item3"><a href="">Portfolio</a></div>
+                    <div class="menu-item menu-item4"><a href="">CV</a></div>
+                    <div class="menu-item menu-item5"><a href="">Log In</a></div>
+                    <div class="menu-item menu-item6"><a href="">6</a></div>
+                    <div class="menu-item menu-item6"><a href="">7</a></div>
+                </div>
+            </div> -->
+
+            <div class="yes-no-box">
+                <div id="yes">YES</div>
+                <div id="no">NO</div>
+            </div>
+
+            <div class="styles-container">
+                <div class="brush-box"></div>
+                <span class="my-logo" id="my-logo" alt="David Damnjanovic" title="David Damnjanovic"></span>
+                <h2 class="my-heading-font">ENJOY:)</h2>
+                <div class="divider"></div>
+
+
+                <h3 class="dropdown">DAVIDS FAVORITE</h3>
+                <div class="fav dropmenu">
+
+                    <div class="fav-item">STYLE 1</div>
+                    <div class="fav-item">STYLE 2</div>
+                    <div class="fav-item">STYLE 3</div>
+
+                </div>
+                <div class="divider"></div>
+                <h3 class="dropdown">ZOOM IN / ZOOM OUT</h3>
+                <div class="magn dropmenu">
+                    <div class="input-wrapper">
+                        <label for="">MAGNIFIER</label>
+                        <input onchange="f_magnifier()" type="range" min="8" max="24" value="12" class="slider"
+                            id="magnifier"></br>
+                    </div>
+                </div>
+                <div class="divider"></div>
+
+                <h3 class="dropdown">BACKGROUND </h3>
+                <div class="backgrounds dropmenu">
+                    <div class="input-wrapper">
+                        <label for="">MAIN COLOR</label>
+                        <input onchange="mainColorChanger()" type="color" min="2" max="32" value="#d2d9df"
+                            class="slider" id="main-color">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="">SECOND COLOR</label>
+                        <input onchange="mainColorChanger()" type="color" min="2" max="32" value="#556677"
+                            class="slider" id="second-color">
+                    </div>
+                    <label for="">GRADIENT</label>
+                    <div id="gradients">
+                        <span class="linear_ltr"></span>
+                        <span class="linear_ttb"></span>
+                        <span class="linear_tltbr"></span>
+                        <span class="linear_trtbl"></span>
+                        <span class="radial"></span>
+                    </div>
+                    <label for="">PATTERNS</label>
+                    <div id="patterns">
+                        <span class="circle"></span>
+                        <span class="diamond"></span>
+                        <span class="square"></span>
+                        <span class="diagonal-stripes"></span>
+                        <span class="waves"></span>
+                        <span class="endless-constellation"></span>
+                        <span class="sunburst"></span>
+                        <span class="prism"></span>
+                        <span class="petals"></span>
+                        <span class="dotted-squares"></span>
+                    </div>
+                    <label for="">COLOR FADE</label>
+                    <div id="fade">
+                        <span class="fade-color"></span>
+
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <h3 class="dropdown">ELEMENTS SHAPES </h3>
+
+                <ul class="shape dropmenu">
+                    <li class="circle_shape"></li>
+                    <li class="square_shape"></li>
+                </ul>
+
+
+
+                <div class="divider"></div>
+
+                <h3 class="dropdown">FONT</h3>
+                <div class="dropmenu">
+                    <div>
+                        <label>HEADINGS</label>
+                        <input type="radio" name="myFont" value="headings" checked>
+                    </div>
+                    <div>
+
+                        <label>PARAGRAPHS </label>
+                        <input type="radio" name="myFont" value="texts">
+                    </div>
+                    <ul class="fonts">
+                        <li class="font-aquatico">Font Aquatico</li>
+                        <br>
+                        <li class="font-benchnine">Font Benchnine</li>
+                        <br>
+                        <li class="font-capriola">Font Capriola</li>
+                        <br>
+                        <li class="font-coldiac">Font Coldiac</li>
+                        <br>
+                        <li class="font-coves">Font Coves</li>
+                        <br>
+                        <li class="font-heebo">Font Heebo</li>
+                        <br>
+                        <li class="font-juliussans">Font Juliussans</li>
+                        <br>
+                        <li class="font-montserrat">Font Montserrat</li>
+                        <br>
+                        <li class="font-ntr">Font Ntr</li>
+                        <br>
+                        <li class="font-orbitron">Font Orbitron</li>
+                        <br>
+                        <li class="font-philosopher">Font Philosopher</li>
+                        <br>
+                        <li class="font-tangerine">Font Tangerine</li>
+                        <br>
+                        <li class="font-basier">Font Basier</li>
+                        <br>
+                    </ul>
+                </div>
+                <div class="divider"></div>
+                <div class="save-box">
+                    <div class="note-baloon">You need to be logged in to save theme</div>
+                    <label for="">ENTER THEME NAME:</label>
+                    <input type="text" id="style-name" autofocus>
+                    <Button type="button">Save your theme</Button>
+                    <div id="favorites">
+                        <h3 class="dropdown">SAVED LAYOUTS</h3>
+                        <div class="fav dropmenu">
+
+                            <div class="fav-item">STYLE 1</div>
+                            <div class="fav-item">STYLE 2</div>
+                            <div class="fav-item">STYLE 3</div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="style-names"></div>
+            </div>
+        </div>
+
+        <!-- TOOLS AND SKILLS -->
+        <div id="skills" class="current hidden">
+            <div class="bg-doors">
+                <div class="door"></div>
+                <div class="door"></div>
+            </div>
+            <h3>Tools'n'Skills</h3>
+            <div class="divider"></div>
+            <div class="tns">
+                <!-- <div class="skills-first"> -->
+                <div class="html skill">
+                    <div class="cover">
+                        <!-- <p class="question">?</p><span>Click to discover</span> -->
+                    </div>
+                    <p class="text">HTML</p>
+                </div>
+                <div class="css3 skill">
+                    <div class="cover">
+                        <!-- <p class="question">?</p><span>Click to discover</span> -->
+                    </div>
+                    <p class="text">CSS3</p>
+                </div>
+                <div class="js skill">
+                    <div class="cover">
+                        <!-- <p class="question">?</p><span>Click to discover</span> -->
+                    </div>
+                    <p class="text">JavaScript</p>
+                </div>
+                <div class="jquery skill">
+                    <div class="cover">
+                        <!-- <p class="question">?</p><span>Click to discover</span> -->
+                    </div>
+                    <p class="text">jQuery</p>
+                </div>
+                <div class="scss skill">
+                    <div class="cover">
+                        <!-- <p class="question">?</p><span>Click to discover</span> -->
+                    </div>
+                    <p class="text">Sass/Scss</p>
+                </div>
+                <!-- </div> -->
+                <!-- <div class="skills-second"> -->
+                <div class="git skill">
+                    <div class="cover">
+                        <!-- <p class="question">?</p> <span>Click to discover</span> -->
+                    </div>
+                    <p class="text">GitHub</p>
+                </div>
+                <div class="bootstrap skill">
+                    <div class="cover">
+                        <!-- <p class="question">?</p><span>Click to discover</span> -->
+                    </div>
+                    <p class="text">BOOTSTRAP4</p>
+                </div>
+                <div class="json skill">
+                    <div class="cover">
+                        <!-- <p class="question">?</p><span>Click to discover</span> -->
+                    </div>
+                    <p class="text">JSON</p>
+                </div>
+                <div class="responsive skill">
+                    <div class="cover">
+                        <!-- <p class="question">?</p><span>Click to discover</span> -->
+                    </div>
+                    <p class="text">Responsive Development</p>
+                </div>
+                <div class="cross-browser skill">
+                    <div class="cover">
+                        <!-- <p class="question">?</p><span>Click to discover</span> -->
+                    </div>
+                    <p class="text">Cross-Browser Testing</p>
+                </div>
+                <!-- </div> -->
+            </div>
+            <div class="skill-text"></div>
+        </div>
+
+
+
+        <!-- WORK -->
+        <div id="works" class="current hidden">
+
+            <div class="work-box">
+                <div class="work-preview">
+                    <!-- <embed src="https://www.aggios.com" style=""> -->
+                </div>
+                <h3 class="my-heading-font">AGGIOS</h3>
+                <span class="divider"></span>
+                <p class="my-text-font specs">lorem bla bla ipsum tra la la laaaaa jer to je bas zabavno.<p>
+
+            </div>
+            <div class="work-box">
+                <div class="work-preview">
+                    <!-- <embed src="https://abrakadaba.github.io/rush/" style=" "> -->
+                </div>
+                <h3 class="my-heading-font">AGGIOS</h3>
+                <span class="divider"></span>
+                <p class="my-text-font specs">lorem bla bla ipsum tra la la laaaaa jer to je bas zabavno.<p>
+            </div>
+            <div class="work-box">
+                <div class="work-preview">
+                    <!-- <embed src="https://abrakadaba.github.io/cancan/" style=" "> -->
+                </div>
+                <h3 class="my-heading-font">AGGIOS</h3>
+                <span class="divider"></span>
+                <p class="specs my-text-font">lorem bla bla ipsum tra la la laaaaa jer to je bas zabavno.<p>
+            </div>
+            <div class="work-box">
+                <div class="work-preview">
+                    <!-- <embed src="https://abrakadaba.github.io/trap/" style=" "> -->
+                </div>
+                <h3 class="my-heading-font">AGGIOS</h3>
+                <span class="divider"></span>
+                <p class="specs my-text-font">lorem bla bla ipsum tra la la laaaaa jer to je bas zabavno.<p>
+            </div>
+        </div>
+
+
+        <!-- ABOUT -->
+        <div id="about" class="current hidden">
+            <div class="photo">
+                <div class="fire"></div>
+            </div>
+            <div class="aboutme">
+                <div>
+                    <h3 class="my-heading-font">About me</h3>
+                    <div class="divider"></div>
+                    <p class="my-text-font">Understanding Web development process, always learning new skills, finding
+                        clients needs and
+                        expectations and then doing my best using all my knowledge and imagination to find the most
+                        effective solutions making every pixel and every detail perfect, makes me feel great as a
+                        Front-end
+                        web developer.<br><br>
+                        Simply, for me, coding is like cooking. Languages are like Cuisines. Algorithms are like
+                        recepies. And If there is a passion, and you have some ideas what to do with ingredients, it got
+                        to be good!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="./main.js"></script>
+    </div>
+</body>
+
+</html>

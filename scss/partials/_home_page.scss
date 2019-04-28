@@ -1,0 +1,99 @@
+#home-page{
+    height: 100%;
+    min-height: 100vh;
+}
+.welcome-note{
+    line-height: calc(3vw + 5px);
+    width: calc(100% - 30px);
+    opacity: 0;
+    max-width: 100%;
+    margin: 2.2em auto;
+    // border: 1px solid #aaa;
+    color: #e1deae;
+    padding: 10px 20px;
+    text-align: center;
+    // border-radius: calc(var(--my-shape) - 20%);
+    // background-color: rgba(30, 30, 30, 0.2);
+    text-shadow: 0px -3px 10px #222;
+    h2{
+        font-size: calc(4vw + 12px);
+    }
+}
+
+.welcome-note.option2{
+    font-size: 1.5em;
+    line-height: 2.2em;
+    width: calc(100% - 30px);
+ 
+    opacity: 0;
+    max-width: 665px;
+    margin: 2.2em auto;
+    border: 1px solid #aaa;
+    color: #e1deae;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: calc(var(--my-shape) - 20%);
+    background-color: rgba(30, 30, 30, .2);
+    text-shadow: 2px 2px 3px #222;
+}
+#intro{
+    opacity: 0;
+    width: calc(100% - 30px);
+    max-width: 665px;
+    margin: 0 auto;
+    font-size: 1.3em;
+    line-height: 1.5em;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    span{
+        color: #61dafb;
+    }
+
+}
+// #rotator{
+//     position: absolute;
+//     width: 280px;
+//     height: 280px;
+//     border: 1px solid white;
+//     left: 50%;
+//     top: 50%;
+//     transform: translate(-50%, -50%);
+// }
+
+.yes-no-box{
+    height: 150px;
+    width: 100%;
+    position: relative;
+}
+#yes, #no{
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: 700;
+    position: absolute;
+    bottom: 0; 
+    height: 125px;
+    width: 125px;
+    // border: 1px dotted blue;
+    background:url(./../img/gear.png), radial-gradient(#dadada6b 20%, #c7c7c700 40%, #00000000 70%);
+    background-position: center; 
+    background-size: contain; 
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 4s;
+}
+#yes{
+    left: -125px;
+}
+#no{
+    right: -125px;
+}
+
+.rotation-right{
+    transform: rotate(360deg);
+}
+
+.rotation-left{
+    transform: rotate(-360deg);
+}
