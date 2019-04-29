@@ -220,11 +220,12 @@ span.my-logo {
     height: 30px;
     cursor: pointer;
     border: 1px solid #666;
-    border-radius: 0%;
-    background: url(./../img/gif/color_fade.gif);
+    border-radius: 0%; 
 }
 
-.fade-color {}
+.fade-color {
+    background: url(./../img/gif/color_fade.gif);
+}
 
 #style-name{
     width: 100%;

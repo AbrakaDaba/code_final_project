@@ -18,7 +18,7 @@ header, #headerHelper {
       margin: 0;
   
       .my-logo {
-        background-image: url('.././img/david_damnjanovic_logo.svg');
+        background-image: url('./../img/david_damnjanovic_logo.svg');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
@@ -55,7 +55,7 @@ header, #headerHelper {
     top: 0;
   }
   .my-logo {
-    background-image: url('.././img/david_damnjanovic_logo.svg');
+    background-image: url('./../img/david_damnjanovic_logo.svg');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
@@ -79,7 +79,7 @@ header, #headerHelper {
     cursor: pointer;
   
     &:hover {
-      background-image: url('.././img/david_damnjanovic_logo6w.svg');
+      background-image: url('./../img/david_damnjanovic_logo_white.svg');
     }
   }
   

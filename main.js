@@ -131,8 +131,8 @@ $(".styles-container").hover(function () {
   hover = true;
   $(".styles-container").css("left", "0");
   $('.brush-box').css("width", "88%");
-  $(".brush-box").first().css("background-image" , "url(./../img/brush.svg)");
-  $("#my-logo").css("background-image" , "url(.././img/david_damnjanovic_logo.svg)");
+  $(".brush-box").first().css("background-image" , "url(././img/brush.svg)");
+  $("#my-logo").css("background-image" , "url(././img/david_damnjanovic_logo.svg)");
 }, function () {
   hover = false;
   $('.dropmenu').css({
@@ -335,20 +335,20 @@ function fontColor() {
   if (rgbSumm > 490) {
     header.style.color = "#000";
     $('#about, .about').css("color", "#000000");
-    $(".brush-box").first().css("background-image" , "url(./../img/brush.svg)");
-    $("#my-logo").css("background-image" , "url(.././img/david_damnjanovic_logo.svg)");
+    $(".brush-box").first().css("background-image" , "url(././img/brush.svg)");
+    $("#my-logo").css("background-image" , "url(././img/david_damnjanovic_logo.svg)");
 
   } else {
     header.style.color = "#fff";
     $('#about, .about').css("color", "#fff");
     // $('#brush').attr("fill" , "#ffffff");
-    $(".brush-box").first().css("background-image" , "url(./../img/brush-white.svg)");
-    $("#my-logo").css("background-image" , "url(.././img/david_damnjanovic_logo_white.svg)");
+    $(".brush-box").first().css("background-image" , "url(././img/brush-white.svg)");
+    $("#my-logo").css("background-image" , "url(././img/david_damnjanovic_logo_white.svg)");
     console.log($(".brush-box").first().css("background-image"));
   }
   if(hover){
-    $(".brush-box").first().css("background-image" , "url(./../img/brush.svg)");
-    $("#my-logo").css("background-image" , "url(.././img/david_damnjanovic_logo.svg)");
+    $(".brush-box").first().css("background-image" , "url(././img/brush.svg)");
+    $("#my-logo").css("background-image" , "url(././img/david_damnjanovic_logo.svg)");
   }
 }
 

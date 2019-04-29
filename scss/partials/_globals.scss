@@ -84,3 +84,15 @@ a {
   right: 58px;
   top: 9px;
 }
+
+.heading-line{
+  position: relative;
+}
+.heading-line:before{
+  position: absolute;
+  content: "";
+  width: 2.5em;
+  height: 2px;
+  background: var(--my-bg-main);
+top: -25px;
+}
