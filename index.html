@@ -14,7 +14,20 @@
 
 <body class="stripes">
     <!-- onmousemove="contraDirection(event)" -->
-    <!-- <div id="speech-bubble"></div> -->
+    <div id="total-display"> 
+<div class="form-signin">        
+      <h3 class="form-signin-heading">SIGN IN (OR LOG IN) AND SAVE YOUR FAVORITE THEMES<br><br> Please Sign In</h3>
+     
+       <input type="text" id="username" name="Username" placeholder="Username" required="" autofocus="">
+     
+ 
+        <input type="password" id="password" name="Password" placeholder="Password" required="">          
+    
+     
+      <button id="loginBtn" name="Submit" value="signin" type="Submit">SIGN IN / LOG IN</button> 
+      
+  </div>
+    </div>
     <div id="background-box">
 
         <header id="myHeader">
@@ -38,7 +51,7 @@
             <!-- <p id="intro">This could be a cliche, you visite my personal portfolio website(PPWS :)), ahamm, where are projects? Ok! Here they are! Let me see, and where are skills, aham, ok, here they are! There is some CV, Contacts. Nice, I'll contact this guy! I like'im! Or you don't like my PPWS? Great! <span title="In matters of taste, there can be no disputes">"Dei Gusti non si discute!" </span> say Italians. Simply change it with few clicks, and when you transform it to some beautiful PPWS, just contact me! ;)"</p> -->
             <p class="my-text-font" id="intro">I hope this isn't going to be a cliche, you visite my Personal Portfolio
                 Website (PPW, i've just invented this acronym :)), Let's see, where are projects? Ok! <span>Here</span>
-                they are! Let me see, and where are skills, ahamm, ok, <span>Here</span> they are! There is some
+                they are! Let me see, and where are <span><a href="#skills">skills</a></span>, ahamm, ok, <span>Here</span> they are! There is some
                 <span><a href="pdf/cv_david_damnjanovic_feb_2019.pdf" target="_blank">CV</a></span>, <span>about
                     David</span>. Nice, I'll contact this guy! I like him!</br></br> I would be very happy if you
                 dislike my PPW? Great! <i title="In matters of taste, there can be no disputes">"Dei Gusti non si
@@ -89,7 +102,7 @@
                 <div class="magn dropmenu">
                     <div class="input-wrapper">
                         <label for="">MAGNIFIER</label>
-                        <input onchange="f_magnifier()" type="range" min="8" max="24" value="12" class="slider"
+                        <input onchange="f_magnifier()" type="range" min="8" max="21" value="12" class="slider"
                             id="magnifier"></br>
                     </div>
                 </div>
@@ -148,13 +161,13 @@
 
                 <div class="divider"></div>
 
-                <h3 class="dropdown">FONT</h3>
+                <h3 class="dropdown">CHANGE FONT</h3>
                 <div class="dropmenu">
-                    <div>
+                    <div class="radio-box">
                         <label>HEADINGS</label>
                         <input type="radio" name="myFont" value="headings" checked>
                     </div>
-                    <div>
+                    <div class="radio-box">
 
                         <label>PARAGRAPHS </label>
                         <input type="radio" name="myFont" value="texts">
@@ -190,10 +203,11 @@
                 </div>
                 <div class="divider"></div>
                 <div class="save-box">
-                    <div class="note-baloon">You need to be logged in to save theme</div>
+                 <div id="theme-name">   
                     <label for="">ENTER THEME NAME:</label>
                     <input type="text" id="style-name" autofocus>
-                    <Button type="button">Save your theme</Button>
+                </div>
+                    <Button type="button"><div class="note-baloon">Just  <span id="sign-in-start">SIGN IN</span>  and simply save the theme</div>Save your theme</Button>
                     <div id="favorites">
                         <h3 class="dropdown">SAVED LAYOUTS</h3>
                         <div class="fav dropmenu">
@@ -215,8 +229,8 @@
                 <div class="door"></div>
                 <div class="door"></div>
             </div>
-            <h3>Tools'n'Skills</h3>
-            <div class="divider"></div>
+            <h3 class="my-heading-font heading-line">Skills'n'Tools</h3>
+         
             <div class="tns">
                 <!-- <div class="skills-first"> -->
                 <div class="html skill">
@@ -290,40 +304,45 @@
 
         <!-- WORK -->
         <div id="works" class="current hidden">
+            <h3 class="my-heading-font heading-line">My Works</h3>
 
             <div class="work-box">
                 <div class="work-preview">
                     <!-- <embed src="https://www.aggios.com" style=""> -->
                 </div>
-                <h3 class="my-heading-font">AGGIOS</h3>
+                <h4 class="my-heading-font">AGGIOS</h4>
                 <span class="divider"></span>
                 <p class="my-text-font specs">lorem bla bla ipsum tra la la laaaaa jer to je bas zabavno.<p>
 
             </div>
             <div class="work-box">
                 <div class="work-preview">
-                    <!-- <embed src="https://abrakadaba.github.io/rush/" style=" "> -->
+                    <!-- <embed src="https://www.aggios.com" style=""> -->
                 </div>
-                <h3 class="my-heading-font">AGGIOS</h3>
+                <h4 class="my-heading-font">AGGIOS</h4>
                 <span class="divider"></span>
                 <p class="my-text-font specs">lorem bla bla ipsum tra la la laaaaa jer to je bas zabavno.<p>
+
             </div>
             <div class="work-box">
                 <div class="work-preview">
-                    <!-- <embed src="https://abrakadaba.github.io/cancan/" style=" "> -->
+                    <!-- <embed src="https://www.aggios.com" style=""> -->
                 </div>
-                <h3 class="my-heading-font">AGGIOS</h3>
+                <h4 class="my-heading-font">AGGIOS</h4>
                 <span class="divider"></span>
-                <p class="specs my-text-font">lorem bla bla ipsum tra la la laaaaa jer to je bas zabavno.<p>
+                <p class="my-text-font specs">lorem bla bla ipsum tra la la laaaaa jer to je bas zabavno.<p>
+
             </div>
             <div class="work-box">
                 <div class="work-preview">
-                    <!-- <embed src="https://abrakadaba.github.io/trap/" style=" "> -->
+                    <!-- <embed src="https://www.aggios.com" style=""> -->
                 </div>
-                <h3 class="my-heading-font">AGGIOS</h3>
+                <h4 class="my-heading-font">AGGIOS</h4>
                 <span class="divider"></span>
-                <p class="specs my-text-font">lorem bla bla ipsum tra la la laaaaa jer to je bas zabavno.<p>
+                <p class="my-text-font specs">lorem bla bla ipsum tra la la laaaaa jer to je bas zabavno.<p>
+
             </div>
+            
         </div>
 
 
@@ -335,7 +354,7 @@
             <div class="aboutme">
                 <div>
                     <h3 class="my-heading-font heading-line">About me</h3>
-                    <div class="divider"></div>
+                    <!-- <div class="divider"></div> -->
                     <p class="my-text-font">Understanding Web development process, always learning new skills and sharping old ones, finding
                         clients needs and
                         expectations and then doing my best using all my knowledge and imagination to find the most

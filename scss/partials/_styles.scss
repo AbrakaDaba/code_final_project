@@ -145,12 +145,14 @@ span.my-logo {
     padding: 15px 0;
     position: relative;
     cursor: pointer;
-
+#theme-name, #favorites{
+    display: none;
+}
     .note-baloon {
         cursor: default;
         display: none;
         position: absolute;
-        top: -88px;
+        bottom: 50px;
         left: 50%;
         transform: translate(-50%);
         text-align: center;
@@ -158,10 +160,11 @@ span.my-logo {
         font-family: "font_bcm", sans-serif;
         font-size: 1em;
         line-height: 2em;
-        padding: 0px 20px 0px 20px;
+        padding: 10px 20px 10px 20px;
         border-radius: 1em;
-        background: linear-gradient(rgba(65, 105, 68, 0.92), var(--my-bg-main));
+        background: linear-gradient(rgba(3, 96, 165, 0.92), #000957);
         -webkit-border-radius: 27px;
+        width: 80%;
 
         &::after {
             content: "";
@@ -169,16 +172,25 @@ span.my-logo {
             height: 0px;
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
-            border-top: 15px solid var(--my-bg-main);
+            border-top: 15px solid #000957;
             position: absolute;
             bottom: -15px;
             right: calc(50% - 10px);
         }
+        #sign-in-start{
+            color: #8be3fd;
+            cursor: pointer;
+            text-decoration: underline;
+            &:hover{
+                color: #ffa600;
+            }
+        }
     }
 
     button {
-        background-color: rgba(65, 105, 68, 0);
-        border: 1px solid #0360a5;
+        position: relative;
+        background-color: rgba(0,0, 0, 0);
+        border: 1px solid rgb(3, 96, 165);
         // padding: 10px 20px;
         // border-radius: 5px;
         line-height: 34px;
@@ -190,7 +202,7 @@ span.my-logo {
         color: #0360a5;
         width: 100%;
         &:hover{
-            background-color: #0360a5;
+            background-color: rgba(3, 96, 165,0.92);
             color: #fff;
         }
     }

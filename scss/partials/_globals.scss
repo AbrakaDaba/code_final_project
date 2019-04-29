@@ -1,9 +1,10 @@
 :root {
+  --my-font-size: 12px;
   --my-bg-main: rgb(83, 110, 136);
+  --my-bg-second: rgb(235, 235, 235);
   --my-body-bg: linear-gradient(to right bottom, var(--my-bg-main) 0%, var(--my-bg-second) 100%) 100% center no-repeat;
   // --my-bg-img: url(".././img/world-globe.jpg");
-  --my-bg-color: #126ec3;
-  --my-bg-second: rgb(71, 71, 95);
+  // --my-bg-color: #126ec3;
   --my-shape: 0%; 
   --font-heading: juliussans;
   --font-paragraph: coves;
@@ -14,10 +15,11 @@ html {
   // height: 100vh;
 }
 h3{
-  // font-size: 2.5em;
+  // font-size: 2em;
+  text-align: left;
 }
 body {
-  padding-top: 70px;
+  // padding-top: 70px;
   height: 100%;
   font-size: 12px;
   font-family: sans-serif;
@@ -53,8 +55,12 @@ a {
 #works,
 #skills,
 #about {
-  min-height: 100vh;
-  border-bottom: 5px solid var(--my-bg-second);
+  min-height: 100vh; 
+}
+#home-page,
+#works,
+#skills {
+  padding: 70px 0px;
 }
 
 .current {
@@ -95,4 +101,13 @@ a {
   height: 2px;
   background: var(--my-bg-main);
 top: -25px;
+}
+.heading-line:after {
+  position: absolute;
+  content: "";
+  width: 6em;
+  height: 2px;
+  background: var(--my-bg-main);
+  bottom: -25px;
+  left: 0;
 }

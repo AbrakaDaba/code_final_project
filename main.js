@@ -12,6 +12,7 @@ window.onload = function() {
       styles=[];
     }
     console.log(localStorage.styles);
+    fontColor();
 }
 
 //HEADER SHOWING ON SCROLL
@@ -137,9 +138,12 @@ $(".styles-container").hover(function () {
   hover = false;
   $('.dropmenu').css({
     "height": "0px", 
-  }); 
-  $(".styles-container").css("left", "-280px");
-  $('.brush-box').css("width", "155%");
+  });
+  // setTimeout(function(){
+    $(".styles-container").css("left", "-280px");
+    $('.brush-box').css("width", "155%");
+
+  // }, 1000)
   setTimeout(fontColor);
 })
 
@@ -183,7 +187,7 @@ document.querySelector(".fav-item").onclick = function () {
 /////// MAGNIFIER ///////
 function f_magnifier() {
   var magnif_value = document.getElementById('magnifier').value;
-  document.querySelector('body').style.fontSize = magnif_value + "px";
+  myRoot.style.setProperty('--my-font-size', magnif_value + "px");
   myStyles.changeSize(magnif_value + "px");
   console.log(myStyles);
 }
@@ -374,25 +378,25 @@ console.log(myStyles);
 });
  
 
-//////// FONT FAMILY ///////
-// function fontFamily(){
-// $('.fonts').children().click(function (el) {
-//   // var backgroundBox = document.getElementById("background-box");
-//   // var fontClass = backgroundBox.classList[1];
-//   // console.log(fontClass);
-// $("#background-box").removeClass();
-//   // $('body').classList.forEach(className => {
-//   //   if (className.startsWith('font')) {
-//   // document.body.classList.remove(fontClass);
-//   //   }
-//   // });
-//   // $('body').className.replace(/\bfont.*?\b/g, '');
-//   $('#background-box').addClass(el.currentTarget.classList.value);
-//   console.log(el.currentTarget.classList.value);
+//////// DISPLAY LOG-IN FORM ///////
+$("#sign-in-start").click(function(){
+  console.log("UJaaa");
 
-// })
- 
-// }
+  $("#total-display").show();
+  $("body").css("overflow", "hidden");
+  $("#total-display").show(); 
+  setTimeout(function(){
+
+    $(document).click(function () {
+          $('#total-display').hide();
+          $("body").css("overflow", "auto");
+  });
+  $('.form-signin , #sign-in-start').click(function(event){
+    $("#total-display").show();
+    event.stopPropagation();
+  });
+  },100)
+})
 
 var currentPage = Array.from(document.getElementsByClassName("current"));
 // console.log(currentPage);

@@ -1,6 +1,7 @@
 #home-page{
     height: 100%;
     min-height: 100vh;
+    font-size: var(--my-font-size);
 }
 .welcome-note{
     line-height: calc(3vw + 5px);
