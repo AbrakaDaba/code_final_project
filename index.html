@@ -12,21 +12,24 @@
     <title>David Damnjanovic</title>
 </head>
 
-<body class="stripes">
-    <!-- onmousemove="contraDirection(event)" -->
-    <div id="total-display"> 
-<div class="form-signin">        
-      <h3 class="form-signin-heading">SIGN IN (OR LOG IN) AND SAVE YOUR FAVORITE THEMES<br><br> Please Sign In</h3>
-     
-       <input type="text" id="username" name="Username" placeholder="Username" required="" autofocus="">
-     
- 
-        <input type="password" id="password" name="Password" placeholder="Password" required="">          
-    
-     
-      <button id="loginBtn" name="Submit" value="signin" type="Submit">SIGN IN / LOG IN</button> 
-      
-  </div>
+<body class="">
+
+
+    <!-- FORM PAGE --> 
+    <div id="total-display">
+        <div class="form-signin">
+            <h3 class="form-signin-heading">SIGN IN (OR LOG IN) AND SAVE YOUR FAVORITE THEMES<br><br> Please Sign In
+            </h3>
+
+            <input type="text" id="username" name="Username" placeholder="Username" required="" autofocus="">
+
+
+            <input type="password" id="password" name="Password" placeholder="Password" required="">
+
+
+            <button id="loginBtn" name="Submit" value="signin" type="Submit">SIGN IN / LOG IN</button>
+
+        </div>
     </div>
     <div id="background-box">
 
@@ -45,19 +48,16 @@
         <div id="home-page" class="current hidden">
             <!-- <div id="rotator"></div> -->
             <div class="welcome-note">
-                <h2 class="my-heading-font"><span class="shaking-text">Hey,</span><br><span class="shaking-text">I'm
-                        David Damnjanovic</span><br>Front-end Developer From Serbia</h2>
+                <h2 class="my-heading-font"><span class="hey">Hey,</span><br><span class="david">I'm
+                        David</span><br><span class="front">Front-end Developer</span></h2>
             </div>
             <!-- <p id="intro">This could be a cliche, you visite my personal portfolio website(PPWS :)), ahamm, where are projects? Ok! Here they are! Let me see, and where are skills, aham, ok, here they are! There is some CV, Contacts. Nice, I'll contact this guy! I like'im! Or you don't like my PPWS? Great! <span title="In matters of taste, there can be no disputes">"Dei Gusti non si discute!" </span> say Italians. Simply change it with few clicks, and when you transform it to some beautiful PPWS, just contact me! ;)"</p> -->
-            <p class="my-text-font" id="intro">I hope this isn't going to be a cliche, you visite my Personal Portfolio
-                Website (PPW, i've just invented this acronym :)), Let's see, where are projects? Ok! <span>Here</span>
-                they are! Let me see, and where are <span><a href="#skills">skills</a></span>, ahamm, ok, <span>Here</span> they are! There is some
-                <span><a href="pdf/cv_david_damnjanovic_feb_2019.pdf" target="_blank">CV</a></span>, <span>about
-                    David</span>. Nice, I'll contact this guy! I like him!</br></br> I would be very happy if you
-                dislike my PPW? Great! <i title="In matters of taste, there can be no disputes">"Dei Gusti non si
-                    discute!" </i> say Italians. Simply <span>CHANGE IT</span> with few clicks, and when you transform
-                it to some beautiful PPW, just... <span><a class="social-link__url"
-                        href="mailto:daviddamnjan@gmail.com">contact</a></span> me! ;)"</p>
+            <p class="my-text-font" id="intro">I hope this will not be a cliché. You visite my Personal Portfolio
+                Website (PPW, i've just invented this acronym :)), look at the <span><a href="#works">PROJECTS</a></span> I was working on.  
+                Let me see, what's next? <span><a href="#skills">SKILLS</a></span> of course. Then, you want to read my <span><a href="pdf/cv_david_damnjanovic_feb_2019.pdf" target="_blank">CV</a></span>, and eventualy  to get to know more <span><a href="#about">about me</a></span>. Than contact me and make me an offer I can not refuse? Noooo....</br></br> I would be very happy if you dislike my PPW? Great! <i title="In matters of taste, there can be no disputes">"Dei Gusti non si
+                    discute!" </i> say Italians. Simply <span id="change-it">CHANGE IT</span> with few clicks, and when you transform
+                it to some beautiful PPW, just... <span><a class=""
+                        href="mailto:daviddamnjan@gmail.com">CONTACT</a></span> me! ;)"</p>
             <span></span>
 
             <!-- <div class="like-btns">
@@ -76,7 +76,7 @@
                     <div class="menu-item menu-item6"><a href="">7</a></div>
                 </div>
             </div> -->
-
+            <h2 class="question">SO, DO YOU LIKE WHAT YOU SEE?</h2>
             <div class="yes-no-box">
                 <div id="yes">YES</div>
                 <div id="no">NO</div>
@@ -203,11 +203,14 @@
                 </div>
                 <div class="divider"></div>
                 <div class="save-box">
-                 <div id="theme-name">   
-                    <label for="">ENTER THEME NAME:</label>
-                    <input type="text" id="style-name" autofocus>
-                </div>
-                    <Button type="button"><div class="note-baloon">Just  <span id="sign-in-start">SIGN IN</span>  and simply save the theme</div>Save your theme</Button>
+                    <div id="theme-name">
+                        <label for="">ENTER THEME NAME:</label>
+                        <input type="text" id="style-name" autofocus>
+                    </div>
+                    <Button type="button">
+                        <div class="note-baloon">Just <span id="sign-in-start">SIGN IN</span> and simply save the theme
+                        </div>Save your theme
+                    </Button>
                     <div id="favorites">
                         <h3 class="dropdown">SAVED LAYOUTS</h3>
                         <div class="fav dropmenu">
@@ -222,7 +225,7 @@
                 <div id="style-names"></div>
             </div>
         </div>
- 
+
         <!-- TOOLS AND SKILLS -->
         <div id="skills" class="current hidden">
             <div class="bg-doors">
@@ -230,7 +233,7 @@
                 <div class="door"></div>
             </div>
             <h3 class="my-heading-font heading-line">Skills'n'Tools</h3>
-         
+
             <div class="tns">
                 <!-- <div class="skills-first"> -->
                 <div class="html skill">
@@ -342,7 +345,7 @@
                 <p class="my-text-font specs">lorem bla bla ipsum tra la la laaaaa jer to je bas zabavno.<p>
 
             </div>
-            
+
         </div>
 
 
@@ -355,7 +358,8 @@
                 <div>
                     <h3 class="my-heading-font heading-line">About me</h3>
                     <!-- <div class="divider"></div> -->
-                    <p class="my-text-font">Understanding Web development process, always learning new skills and sharping old ones, finding
+                    <p class="my-text-font">Understanding Web development process, always learning new skills and
+                        sharping old ones, finding
                         clients needs and
                         expectations and then doing my best using all my knowledge and imagination to find the most
                         effective solutions making every pixel and every detail perfect, makes me feel great as a

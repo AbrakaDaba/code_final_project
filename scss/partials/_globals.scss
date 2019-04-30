@@ -80,16 +80,16 @@ a {
 //   opacity: 0;
 // }
 
-#speech-bubble{
-  background-image: url(./../../img/speech-bubble.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: absolute;
-  width: 135px;
-  height: 93px;
-  right: 58px;
-  top: 9px;
-}
+// #speech-bubble{
+//   background-image: url(./../../img/speech-bubble.png);
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   position: absolute;
+//   width: 135px;
+//   height: 93px;
+//   right: 58px;
+//   top: 9px;
+// }
 
 .heading-line{
   position: relative;
@@ -106,6 +106,7 @@ top: -25px;
   position: absolute;
   content: "";
   width: 6em;
+  max-width: calc(100% - 15px);
   height: 2px;
   background: var(--my-bg-main);
   bottom: -25px;

@@ -1,18 +1,30 @@
- 
+
+console.log(localStorage.styles, localStorage.users);
 
 window.onload = function() {
-  window.addEventListener("beforeunload", function(){
+    window.addEventListener("beforeunload", function(){
     window.localStorage.setItem("styles", JSON.stringify(styles));
+    window.localStorage.setItem("users", JSON.stringify(users));
   })
-  // if(localStorage){ 
+ if(localStorage.styles){ 
     var customStyles = localStorage.getItem("styles");
     var styles = JSON.parse(customStyles);
-    // }
-    if(!localStorage || localStorage.styles == "null"){
+  }
+    else{
       styles=[];
     }
     console.log(localStorage.styles);
     fontColor();
+  }
+  
+  if(localStorage.users){
+    var myUsers = localStorage.getItem("users");
+  var users = JSON.parse(myUsers);
+}else if(typeof localStorage.users == undefined){
+  window.localStorage.setItem("users", JSON.stringify([]));
+  localStorage.users = [];
+  users=[];
+  console.log(localStorage.users);
 }
 
 //HEADER SHOWING ON SCROLL
