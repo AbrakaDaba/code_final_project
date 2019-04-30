@@ -1,31 +1,26 @@
-
 console.log(localStorage.styles, localStorage.users);
 
-window.onload = function() {
-    window.addEventListener("beforeunload", function(){
+window.onload = function () {
+  window.addEventListener("beforeunload", function () {
     window.localStorage.setItem("styles", JSON.stringify(styles));
     window.localStorage.setItem("users", JSON.stringify(users));
   })
- if(localStorage.styles){ 
-    var customStyles = localStorage.getItem("styles");
-    var styles = JSON.parse(customStyles);
+  if (!localStorage.styles || localStorage.styles == 'undefined' || localStorage.styles == "null") {
+    styles = [];
+  } else {
   }
-    else{
-      styles=[];
-    }
-    console.log(localStorage.styles);
-    fontColor();
-  }
-  
-  if(localStorage.users){
+  var customStyles = localStorage.getItem("styles");
+  var styles = JSON.parse(customStyles); 
+  fontColor();
+
+  if (!localStorage.users || localStorage.users == 'undefined' || localStorage.users == "null") {
+    users = []; 
+  } else {
     var myUsers = localStorage.getItem("users");
-  var users = JSON.parse(myUsers);
-}else if(typeof localStorage.users == undefined){
-  window.localStorage.setItem("users", JSON.stringify([]));
-  localStorage.users = [];
-  users=[];
-  console.log(localStorage.users);
+    var users = JSON.parse(myUsers); 
+  };
 }
+
 
 //HEADER SHOWING ON SCROLL
 var myRoot = document.documentElement;
@@ -44,20 +39,20 @@ function myFunction() {
 
 //WELCOME NOTE AND INTRO FADE IN
 // $(document).ready(function(){
-  $(".welcome-note").animate({
+$(".welcome-note").animate({
+  opacity: "1",
+}, 1500);
+setTimeout(function () {
+  $("#intro").animate({
     opacity: "1",
   }, 1500);
-  setTimeout(function () {
-    $("#intro").animate({
-      opacity: "1",
-    }, 1500);
-    $('#no').addClass('rotation-left');
-    $('#no').css("right", "calc(50% - 135px)");
-    $('#yes').addClass('rotation-right');
-    $('#yes').css("left", "calc(50% - 135px)");
-  }, 1000)
-  // })
-  
+  $('#no').addClass('rotation-left');
+  $('#no').css("right", "calc(50% - 135px)");
+  $('#yes').addClass('rotation-right');
+  $('#yes').css("left", "calc(50% - 135px)");
+}, 1000)
+// })
+
 
 // for(var i =0; i<headerColorRgb.length; i++){
 //   rgbSumm = rgbSumm + parseInt(headerColorRgb[i]);
@@ -73,7 +68,7 @@ function Styles(name, size, color, scolor, bodyClass, shape, fontHead, fontPara)
   this.style_name = name;
   this.font_size = size;
   this.main_color = color;
-  this.second_color = scolor; 
+  this.second_color = scolor;
   this.bodyClass = bodyClass;
   this.element_shape = shape;
   this.fontHeading = fontHead;
@@ -102,13 +97,13 @@ function Styles(name, size, color, scolor, bodyClass, shape, fontHead, fontPara)
     return this.bodyClass = bodyClass;
   }
 
-  this.changeShape = function(shape){
+  this.changeShape = function (shape) {
     return this.element_shape = shape;
   }
-  this.changeFontH = function(fontHead){
+  this.changeFontH = function (fontHead) {
     return this.fontHeading = fontHead;
   }
-  this.changeFontP = function(fontPara){
+  this.changeFontP = function (fontPara) {
     return this.fontParagraph = fontPara;
   }
   this.styleSetter = function (size, color, scolor, bodyClass, shape) {
@@ -144,16 +139,16 @@ $(".styles-container").hover(function () {
   hover = true;
   $(".styles-container").css("left", "0");
   $('.brush-box').css("width", "88%");
-  $(".brush-box").first().css("background-image" , "url(././img/brush.svg)");
-  $("#my-logo").css("background-image" , "url(././img/david_damnjanovic_logo.svg)");
+  $(".brush-box").first().css("background-image", "url(././img/brush.svg)");
+  $("#my-logo").css("background-image", "url(././img/david_damnjanovic_logo.svg)");
 }, function () {
   hover = false;
   $('.dropmenu').css({
-    "height": "0px", 
+    "height": "0px",
   });
   // setTimeout(function(){
-    $(".styles-container").css("left", "-280px");
-    $('.brush-box').css("width", "155%");
+  $(".styles-container").css("left", "-280px");
+  $('.brush-box').css("width", "155%");
 
   // }, 1000)
   setTimeout(fontColor);
@@ -166,23 +161,23 @@ $('.dropdown').click(function (el) {
   // $('.dropdown').children().removeClass("roto")
   // $(el.target).children().addClass("roto");
   $('.dropmenu').css({
-    "height": "0px", 
-  }); 
+    "height": "0px",
+  });
   $(el.target).next().animate({
     height: $(el.target).next().get(0).scrollHeight
   }, "ease");
-  
-  
+
+
   console.log($(el.target).next().get(0).style.height, $(el.target).next().get(0).style.height);
-  if(Math.floor(parseInt(($(el.target).next().get(0).style.height))) != 0){
+  if (Math.floor(parseInt(($(el.target).next().get(0).style.height))) != 0) {
     $('.dropmenu').css({
-      "transition": "2s", 
-    }); 
+      "transition": "2s",
+    });
     $('.dropmenu').attr({
-      style : "", 
-    }); 
+      style: "",
+    });
   }
-                    
+
 })
 
 
@@ -217,49 +212,49 @@ function mainColorChanger() {
   myStyles.changeColor(mainColor);
   myStyles.changeScolor(secondColor);
   console.log(myStyles);
-  setTimeout(fontColor, 280); 
+  setTimeout(fontColor, 280);
 }
 
 
 //////// GRADIENTS ///////
 // function gradients(){ 
-  $("#gradients").children().click(gradients);
+$("#gradients").children().click(gradients);
 
-  function gradients(el) {
-    clearInterval(fadeInterval);
-    $('#main-color').click(clearInterval(fadeInterval));
-    var mainColor = document.getElementById('main-color').value;
-    var secondColor = document.getElementById('second-color').value;
-    myRoot.style.setProperty('--my-bg-main', mainColor);
-    myRoot.style.setProperty('--my-bg-second', secondColor);
-    myStyles.changeColor(mainColor);
-    myStyles.changeScolor(secondColor);
-    // $('body').css("background", "none");
-    $('body').attr("class", el.currentTarget.className);
-    setTimeout(fontColor, 280);
-  }
-  // }
-  
-  
-  //////// PATERNS ///////
-  // function patterns(){ 
-  $("#patterns").children().click(function (el) {
-    el.preventDefault();
-    clearInterval(fadeInterval);
-    $('body').css("background", "");
-    // $('body').css("background-image", $(this).css("background-image"));
-    $('body').attr("class", el.currentTarget.className);
-    var bodyBg = $('body').css("background-color");
-    // myRoot.style.setProperty('--my-bg-second', bodyBg);
-    myRoot.style.setProperty('--my-bg-second', $(this).css("background-color"));
-    // console.log(bodyBg, this);
-    // var img =  $(this).css("background-image");
-    myStyles.changeClass(el.currentTarget.className);
-    console.log(myStyles);
-    setTimeout(fontColor, 280);
-  })
-  // }
-  
+function gradients(el) {
+  clearInterval(fadeInterval);
+  $('#main-color').click(clearInterval(fadeInterval));
+  var mainColor = document.getElementById('main-color').value;
+  var secondColor = document.getElementById('second-color').value;
+  myRoot.style.setProperty('--my-bg-main', mainColor);
+  myRoot.style.setProperty('--my-bg-second', secondColor);
+  myStyles.changeColor(mainColor);
+  myStyles.changeScolor(secondColor);
+  // $('body').css("background", "none");
+  $('body').attr("class", el.currentTarget.className);
+  setTimeout(fontColor, 280);
+}
+// }
+
+
+//////// PATERNS ///////
+// function patterns(){ 
+$("#patterns").children().click(function (el) {
+  el.preventDefault();
+  clearInterval(fadeInterval);
+  $('body').css("background", "");
+  // $('body').css("background-image", $(this).css("background-image"));
+  $('body').attr("class", el.currentTarget.className);
+  var bodyBg = $('body').css("background-color");
+  // myRoot.style.setProperty('--my-bg-second', bodyBg);
+  myRoot.style.setProperty('--my-bg-second', $(this).css("background-color"));
+  // console.log(bodyBg, this);
+  // var img =  $(this).css("background-image");
+  myStyles.changeClass(el.currentTarget.className);
+  console.log(myStyles);
+  setTimeout(fontColor, 280);
+})
+// }
+
 ////// COLOR FADING //////
 $("#fade").click(colorFading)
 
@@ -289,7 +284,7 @@ function shapes() {
   for (i = 0; i < shapes.length; i++) {
     shapes[i].addEventListener("click", function (el) {
       myRoot.style.setProperty('--my-shape', getComputedStyle(el.target).borderRadius)
-myStyles.changeShape(getComputedStyle(el.target).borderRadius)
+      myStyles.changeShape(getComputedStyle(el.target).borderRadius)
       if (getComputedStyle(el.target).borderRadius == "50%") {
         $('#my-logo').css({
           "background-size": "111%",
@@ -351,20 +346,20 @@ function fontColor() {
   if (rgbSumm > 490) {
     header.style.color = "#000";
     $('#about, .about').css("color", "#000000");
-    $(".brush-box").first().css("background-image" , "url(././img/brush.svg)");
-    $("#my-logo").css("background-image" , "url(././img/david_damnjanovic_logo.svg)");
+    $(".brush-box").first().css("background-image", "url(././img/brush.svg)");
+    $("#my-logo").css("background-image", "url(././img/david_damnjanovic_logo.svg)");
 
   } else {
     header.style.color = "#fff";
     $('#about, .about').css("color", "#fff");
     // $('#brush').attr("fill" , "#ffffff");
-    $(".brush-box").first().css("background-image" , "url(././img/brush-white.svg)");
-    $("#my-logo").css("background-image" , "url(././img/david_damnjanovic_logo_white.svg)");
+    $(".brush-box").first().css("background-image", "url(././img/brush-white.svg)");
+    $("#my-logo").css("background-image", "url(././img/david_damnjanovic_logo_white.svg)");
     console.log($(".brush-box").first().css("background-image"));
   }
-  if(hover){
-    $(".brush-box").first().css("background-image" , "url(././img/brush.svg)");
-    $("#my-logo").css("background-image" , "url(././img/david_damnjanovic_logo.svg)");
+  if (hover) {
+    $(".brush-box").first().css("background-image", "url(././img/brush.svg)");
+    $("#my-logo").css("background-image", "url(././img/david_damnjanovic_logo.svg)");
   }
 }
 
@@ -375,39 +370,38 @@ function fontColor() {
 // var paragraphsFont = false; 
 $('.fonts').children().click(function (el) {
   var font = ($(el.currentTarget).css("font-family"))
-if($( "input:checked" ).val()  == "headings") {
+  if ($("input:checked").val() == "headings") {
     myRoot.style.setProperty('--font-heading', font);
     myStyles.changeFontH(font);
-  }  
+  }
   // if(this.checked && this.value == "texts"){
-    if($( "input:checked" ).val()  == "texts")
-     {
+  if ($("input:checked").val() == "texts") {
     myRoot.style.setProperty('--font-paragraph', font);
     myStyles.changeFontP(font);
   }
-console.log(myStyles);
+  console.log(myStyles);
 
 });
- 
+
 
 //////// DISPLAY LOG-IN FORM ///////
-$("#sign-in-start").click(function(){
+$("#sign-in-start").click(function () {
   console.log("UJaaa");
 
   $("#total-display").show();
   $("body").css("overflow", "hidden");
-  $("#total-display").show(); 
-  setTimeout(function(){
+  $("#total-display").show();
+  setTimeout(function () {
 
     $(document).click(function () {
-          $('#total-display').hide();
-          $("body").css("overflow", "auto");
-  });
-  $('.form-signin , #sign-in-start').click(function(event){
-    $("#total-display").show();
-    event.stopPropagation();
-  });
-  },100)
+      $('#total-display').hide();
+      $("body").css("overflow", "auto");
+    });
+    $('.form-signin , #sign-in-start').click(function (event) {
+      $("#total-display").show();
+      event.stopPropagation();
+    });
+  }, 100)
 })
 
 var currentPage = Array.from(document.getElementsByClassName("current"));
@@ -466,17 +460,15 @@ document.querySelectorAll(".skill").forEach((el) => {
 
       var skillText = $(el).children()[1];
       $('.skill-text').text($(skillText).text());
-      $('.skill-text').css("opacity",0)
+      $('.skill-text').css("opacity", 0)
       $('.skill-text').animate({
-      opacity: "1", 
-      
-      }, 2000),{
-        opacity:"0",
+        opacity: "1",
+
+      }, 2000), {
+        opacity: "0",
       }
     });
   }
   // console.log(clickEnabled);
 
 });
-
-
