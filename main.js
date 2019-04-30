@@ -35,7 +35,14 @@ function myFunction() {
     document.getElementById("headerHelper").className = "";
   }
 }
-
+$("#change-it").click(changeIt)
+function changeIt(){
+  showStylesContainer()
+  
+  $(".styles-container").css({
+    display: "block",
+  });
+}
 
 //WELCOME NOTE AND INTRO FADE IN
 // $(document).ready(function(){
@@ -47,9 +54,9 @@ setTimeout(function () {
     opacity: "1",
   }, 1500);
   $('#no').addClass('rotation-left');
-  $('#no').css("right", "calc(50% - 135px)");
+  $('#no').css("right", "calc(50% - 145px)");
   $('#yes').addClass('rotation-right');
-  $('#yes').css("left", "calc(50% - 135px)");
+  $('#yes').css("left", "calc(50% - 145px)");
 }, 1000)
 // })
 
@@ -135,13 +142,18 @@ function Styles(name, size, color, scolor, bodyClass, shape, fontHead, fontPara)
 var myStyles = new Styles;
 var hover = false;
 ////// STYLES HOVER //////
-$(".styles-container").hover(function () {
+$(".styles-container").hover(showStylesContainer, hideStylesContainer);
+  
+  
+  function showStylesContainer () {
   hover = true;
   $(".styles-container").css("left", "0");
   $('.brush-box').css("width", "88%");
   $(".brush-box").first().css("background-image", "url(././img/brush.svg)");
   $("#my-logo").css("background-image", "url(././img/david_damnjanovic_logo.svg)");
-}, function () {
+}; 
+
+function hideStylesContainer() {
   hover = false;
   $('.dropmenu').css({
     "height": "0px",
@@ -152,7 +164,7 @@ $(".styles-container").hover(function () {
 
   // }, 1000)
   setTimeout(fontColor);
-})
+}
 
 
 
@@ -388,9 +400,9 @@ $('.fonts').children().click(function (el) {
 $("#sign-in-start").click(function () {
   console.log("UJaaa");
 
-  $("#total-display").show();
+  $("#total-display").show(); $("#total-display").attr("style", "display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex;");
   $("body").css("overflow", "hidden");
-  $("#total-display").show();
+  $("#total-display").show(); $("#total-display").attr("style", "display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex;");
   setTimeout(function () {
 
     $(document).click(function () {
@@ -398,7 +410,7 @@ $("#sign-in-start").click(function () {
       $("body").css("overflow", "auto");
     });
     $('.form-signin , #sign-in-start').click(function (event) {
-      $("#total-display").show();
+      $("#total-display").show(); $("#total-display").attr("style", "display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex;");
       event.stopPropagation();
     });
   }, 100)
