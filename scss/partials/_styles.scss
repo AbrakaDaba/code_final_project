@@ -220,6 +220,11 @@ span.my-logo {
         transition: .3s;
     }
 }
+.save-box2:hover {
+    .note-baloon {
+        display: none; 
+    }
+}
 
 .circle_shape {
     margin-right: 5px;

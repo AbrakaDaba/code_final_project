@@ -1,5 +1,6 @@
 // var styles=[];
 // var users=[];
+var id;
 window.addEventListener("beforeunload", function () {
   window.localStorage.setItem("styles", JSON.stringify(styles));
   window.localStorage.setItem("users", JSON.stringify(users));
@@ -14,10 +15,12 @@ var styles = JSON.parse(customStyles);
 // localStorage.clear()
 if (!localStorage.users || localStorage.users == 'undefined' || localStorage.users == "null") {
   users = [];
+  id=0;
   // localStorage.clear()
 } else {
   var myUsers = localStorage.getItem("users");
   var users = JSON.parse(myUsers);
+  id = users.length;
   // localStorage.clear()
 };
 window.onload = function () {
@@ -74,7 +77,8 @@ setTimeout(function () {
 // headerColorRgb = typeof(headerColorRgb)
 // console.log(rgbSumm);
 
-function Styles(name, size, color, scolor, bodyClass, shape, fontHead, fontPara) {
+function Styles(id, name, size, color, scolor, bodyClass, shape, fontHead, fontPara) {
+  this.user_id = id;
   this.style_name = name;
   this.font_size = size;
   this.main_color = color;
@@ -97,10 +101,7 @@ function Styles(name, size, color, scolor, bodyClass, shape, fontHead, fontPara)
   }
   this.changeSize = function (size) {
     return this.font_size = size;
-  }
-  // this.changeImg = function (img) {
-  //   return this.img = img;
-  // }
+  } 
   this.changeClass = function (bodyClass) {
     this.main_color = "";
     this.second_color = "";
@@ -116,7 +117,7 @@ function Styles(name, size, color, scolor, bodyClass, shape, fontHead, fontPara)
   this.changeFontP = function (fontPara) {
     return this.fontParagraph = fontPara;
   }
-  this.styleSetter = function (size, color, scolor, bodyClass, shape) {
+  this.styleSetter = function (id, name, size, color, scolor, bodyClass, shape, fontHead, fontPara) {
     document.querySelector('body').style.fontSize = size + "px";
     myRoot.style.setProperty('--my-bg-main', color);
     myRoot.style.setProperty('--my-bg-second', scolor);
@@ -125,21 +126,16 @@ function Styles(name, size, color, scolor, bodyClass, shape, fontHead, fontPara)
     if (bodyClass !== "" || !bodyClass) {
       var bodyBg = document.body;
       console.log("uja");
-      setTimeout(function () {
-
-        console.log($(bodyBg).css("background-color"));
+      setTimeout(function () { 
         myRoot.style.setProperty('--my-bg-second', $(bodyBg).css("background-color"));
       }, 2000)
-      myRoot.style.setProperty('--my-bg-main', "#fff");
-      console.log($(bodyBg).css("background-color"));
+      myRoot.style.setProperty('--my-bg-main', "#fff"); 
 
     }
     myRoot.style.setProperty('--my-shape', shape);
     myRoot.style.setProperty('--font-heading', fontHead);
     myRoot.style.setProperty('--font-paragraph', fontPara);
-  }
-  // styles.push(this);
-  // console.log(styles);
+  } 
 }
 
 var myStyles = new Styles;
@@ -500,6 +496,7 @@ document.querySelectorAll(".skill").forEach((el) => {
 // function validationForm(event){
 $("#sign-in-form").submit(function (event) {
   loginInfo = {
+    id: ++id,
     userName: $("#username").val(),
     userPassword: $("#password").val()
   }
@@ -556,10 +553,16 @@ function validationForm(loginInfo) {
       if (el.userName == loginValid.userName && el.userPassword == loginValid.userPassword) {
         $("#total-display").hide()
         $("#user-welcome").html("<span>Welcome</span><br>" + loginValid.userName)
-        $("#user-welcome").css({})
+        $("#log-in-form").trigger("reset");
         $("#user-welcome").animate({ 
           opacity: "1"
         }, "ease")
+        $('.save-box').attr("class","save-box save-box2");
+        $('#theme-name').show();
+var userId = el.id;
+console.log(userId);
+savingTheme(userId)
+
       } else { 
         $("#incorrect")
           .css({
@@ -574,3 +577,27 @@ function validationForm(loginInfo) {
   })
 }
 //////// SAVING THEME ////////
+function savingTheme(userId){
+  $("#saveButton").click(function(){
+    var themeName = $("#style-name").val()
+   $(".fav").html('<div class="fav-item">'+themeName+'</div>');
+   $('#favorites').show();  
+   var size = $('body').css("font-size");
+   var color = getComputedStyle(document.documentElement).getPropertyValue('--my-bg-main');
+   var scolor = getComputedStyle(document.documentElement).getPropertyValue('--my-bg-second');
+   var bodyClass = $('body').attr("class");
+   var shape = getComputedStyle(document.documentElement).getPropertyValue('--my-shape');
+   var fontHead = getComputedStyle(document.documentElement).getPropertyValue('--font-heading');
+   var fontPara = getComputedStyle(document.documentElement).getPropertyValue('--font-paragraph');
+   var savedStyle = new Styles(userId, themeName, size, color, scolor, bodyClass, shape, fontHead, fontPara);
+    console.log("houuuuja",savedStyle, Styles);
+    console.log(bodyClass);
+    $('.fav-item').click(function(el){
+      console.log($(el).text());
+      
+    })
+  })
+  
+}
+
+ 
