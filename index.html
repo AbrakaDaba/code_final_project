@@ -13,23 +13,47 @@
 </head>
 
 <body class="">
+<span id="user-welcome" style="text-transform:capitalize;"></span>
 
-
-    <!-- FORM PAGE --> 
+    <!-- FORM PAGE -->
     <div id="total-display">
+        <!-- <div id="form-wrapper"> -->
+
         <div class="form-signin">
-            <h3 class="form-signin-heading">SIGN IN (OR LOG IN) AND SAVE YOUR FAVORITE THEMES<br><br> Please Sign In
+            <h3 class="form-signin-heading">SIGN IN AND SAVE YOUR FAVORITE THEMES<br><br>
             </h3>
-
-            <input type="text" id="username" name="Username" placeholder="Username" required="" autofocus="">
-
-
-            <input type="password" id="password" name="Password" placeholder="Password" required="">
+            <form id="sign-in-form" action="">
+                <input type="text" id="username" name="Username" placeholder="Username" required="" autofocus=""
+                    autocomplete="username">
 
 
-            <button id="loginBtn" name="Submit" value="signin" type="Submit">SIGN IN / LOG IN</button>
+                <input type="password" id="password" name="Password" placeholder="Password"
+                    autocomplete="current-password" required="">
+
+
+                <button id="signinBtn" name="Submit" value="signin" type="Submit">SIGN IN</button>
+            </form>
+            <p>Already have an account? Just <span id="log-in-span">LOG IN</span></p>
 
         </div>
+                <div class="form-login">
+                    <h3 class="form-login-heading">LOG IN AND SAVE YOUR THEMES<br><br>
+                    </h3>
+                    <form id="log-in-form" action="">
+                        <input type="text" id="username1" name="Username1" placeholder="Username" required="" autofocus=""
+                            autocomplete="username">
+    
+    
+                        <input type="password" id="password1" name="Password1" placeholder="Password"
+                            autocomplete="current-password" required="">
+    
+    
+                        <button id="loginBtn" name="Submit" value="signin" type="Submit">LOG IN</button>
+                        <p id="incorrect">Incorrect username or password.</p>
+                    </form>
+                </div>
+                
+        <!-- </div> -->
     </div>
     <div id="background-box">
 
@@ -53,9 +77,15 @@
             </div>
             <!-- <p id="intro">This could be a cliche, you visite my personal portfolio website(PPWS :)), ahamm, where are projects? Ok! Here they are! Let me see, and where are skills, aham, ok, here they are! There is some CV, Contacts. Nice, I'll contact this guy! I like'im! Or you don't like my PPWS? Great! <span title="In matters of taste, there can be no disputes">"Dei Gusti non si discute!" </span> say Italians. Simply change it with few clicks, and when you transform it to some beautiful PPWS, just contact me! ;)"</p> -->
             <p class="my-text-font" id="intro">I hope this will not be a cliché. You visite my Personal Portfolio
-                Website (PPW, i've just invented this acronym :)), look at the <span><a href="#works">PROJECTS</a></span> I was working on.  
-                Let me see, what's next? <span><a href="#skills">SKILLS</a></span> of course. Then, you want to read my <span><a href="pdf/cv_david_damnjanovic_feb_2019.pdf" target="_blank">CV</a></span>, and eventualy  to get to know more <span><a href="#about">about me</a></span>. Than contact me and make me an offer I can not refuse? Noooo....</br></br> I would be very happy if you dislike my PPW? Great! <i title="In matters of taste, there can be no disputes">"Dei Gusti non si
-                    discute!" </i> say Italians. Simply <span id="change-it">CHANGE IT</span> with few clicks, and when you transform
+                Website (PPW, i've just invented this acronym :)), look at the <span><a
+                        href="#works">PROJECTS</a></span> I was working on.
+                Let me see, what's next? <span><a href="#skills">SKILLS</a></span> of course. Then, you want to read my
+                <span><a href="pdf/cv_david_damnjanovic_feb_2019.pdf" target="_blank">CV</a></span>, and eventualy to
+                get to know more <span><a href="#about">ABOUT ME</a></span>. Than contact me and make me an offer I can
+                not refuse? Noooo....</br></br> I would be very happy if you dislike my PPW? Great! <i
+                    title="In matters of taste, there can be no disputes">"Dei Gusti non si
+                    discute!" </i> say Italians. Simply <span id="change-it">CHANGE IT</span> with few clicks, and when
+                you transform
                 it to some beautiful PPW, just... <span><a class=""
                         href="mailto:daviddamnjan@gmail.com">CONTACT</a></span> me! ;)"</p>
             <span></span>
@@ -208,8 +238,9 @@
                         <input type="text" id="style-name" autofocus>
                     </div>
                     <Button type="button">
-                        <div class="note-baloon">Just <span id="sign-in-start">SIGN IN</span> and simply save the theme
-                        </div>Save your theme
+                        <div class="note-baloon">Just <span id="sign-in-start">SIGN IN</span> and save your themes.
+                            Or simply <span id="log-in-start">LOG IN</span> if you already have an account.
+                        </div>SAVE YOUR THEME
                     </Button>
                     <div id="favorites">
                         <h3 class="dropdown">SAVED LAYOUTS</h3>

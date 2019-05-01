@@ -1,27 +1,29 @@
-console.log(localStorage.styles, localStorage.users);
+// var styles=[];
+// var users=[];
+window.addEventListener("beforeunload", function () {
+  window.localStorage.setItem("styles", JSON.stringify(styles));
+  window.localStorage.setItem("users", JSON.stringify(users));
+  // localStorage.clear()
+})
+if (!localStorage.styles || localStorage.styles == 'undefined' || localStorage.styles == "null") {
+  styles = [];
+} else {}
+var customStyles = localStorage.getItem("styles");
+var styles = JSON.parse(customStyles);
 
+// localStorage.clear()
+if (!localStorage.users || localStorage.users == 'undefined' || localStorage.users == "null") {
+  users = [];
+  // localStorage.clear()
+} else {
+  var myUsers = localStorage.getItem("users");
+  var users = JSON.parse(myUsers);
+  // localStorage.clear()
+};
 window.onload = function () {
-  window.addEventListener("beforeunload", function () {
-    window.localStorage.setItem("styles", JSON.stringify(styles));
-    window.localStorage.setItem("users", JSON.stringify(users));
-  })
-  if (!localStorage.styles || localStorage.styles == 'undefined' || localStorage.styles == "null") {
-    styles = [];
-  } else {
-  }
-  var customStyles = localStorage.getItem("styles");
-  var styles = JSON.parse(customStyles); 
   fontColor();
-
-  if (!localStorage.users || localStorage.users == 'undefined' || localStorage.users == "null") {
-    users = []; 
-  } else {
-    var myUsers = localStorage.getItem("users");
-    var users = JSON.parse(myUsers); 
-  };
 }
-
-
+// localStorage.users = [];
 //HEADER SHOWING ON SCROLL
 var myRoot = document.documentElement;
 window.onscroll = function () {
@@ -36,9 +38,10 @@ function myFunction() {
   }
 }
 $("#change-it").click(changeIt)
-function changeIt(){
+
+function changeIt() {
   showStylesContainer()
-  
+
   $(".styles-container").css({
     display: "block",
   });
@@ -143,15 +146,15 @@ var myStyles = new Styles;
 var hover = false;
 ////// STYLES HOVER //////
 $(".styles-container").hover(showStylesContainer, hideStylesContainer);
-  
-  
-  function showStylesContainer () {
+
+
+function showStylesContainer() {
   hover = true;
   $(".styles-container").css("left", "0");
   $('.brush-box').css("width", "88%");
   $(".brush-box").first().css("background-image", "url(././img/brush.svg)");
   $("#my-logo").css("background-image", "url(././img/david_damnjanovic_logo.svg)");
-}; 
+};
 
 function hideStylesContainer() {
   hover = false;
@@ -397,12 +400,16 @@ $('.fonts').children().click(function (el) {
 
 
 //////// DISPLAY LOG-IN FORM ///////
-$("#sign-in-start").click(function () {
+$("#sign-in-start").click(displayForm)
+  
+  function displayForm() {
   console.log("UJaaa");
 
-  $("#total-display").show(); $("#total-display").attr("style", "display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex;");
+  $("#total-display").show();
+  $("#total-display").attr("style", "display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex;");
   $("body").css("overflow", "hidden");
-  $("#total-display").show(); $("#total-display").attr("style", "display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex;");
+  $("#total-display").show();
+  $("#total-display").attr("style", "display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex;");
   setTimeout(function () {
 
     $(document).click(function () {
@@ -410,11 +417,12 @@ $("#sign-in-start").click(function () {
       $("body").css("overflow", "auto");
     });
     $('.form-signin , #sign-in-start').click(function (event) {
-      $("#total-display").show(); $("#total-display").attr("style", "display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex;");
+      $("#total-display").show();
+      $("#total-display").attr("style", "display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex;");
       event.stopPropagation();
     });
   }, 100)
-})
+}
 
 var currentPage = Array.from(document.getElementsByClassName("current"));
 // console.log(currentPage);
@@ -484,3 +492,85 @@ document.querySelectorAll(".skill").forEach((el) => {
   // console.log(clickEnabled);
 
 });
+
+
+/////// SIGNING IN ////////
+// $("#loginBtn").click(validationForm);
+
+// function validationForm(event){
+$("#sign-in-form").submit(function (event) {
+  loginInfo = {
+    userName: $("#username").val(),
+    userPassword: $("#password").val()
+  }
+  users.push(loginInfo); 
+  logingIn(loginInfo);
+  event.preventDefault();
+})
+
+ 
+
+$("#log-in-span").click(logingIn);
+$("#log-in-start").click(function(){
+  displayForm();
+  $(".form-signin").css("display", "none");
+  logingIn();
+})
+
+///// LOGING IN ////////
+function logingIn(loginInfo) {
+  
+  $("#sign-in-form").trigger("reset"); 
+  $(".form-signin").animate({
+    left: "-100vw", 
+  })
+  setTimeout(function () {
+    $(".form-signin").css("display", "none"); 
+  }, 300) 
+  $("#signinBtn").click(validationForm(loginInfo));
+}
+
+function validationForm(loginInfo) {
+  $('.form-login, #log-in-start').click(function (event) {
+    $("#total-display").show();
+    $("#total-display").attr("style", "display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex;");
+    event.stopPropagation();
+  });
+  setTimeout(function () { 
+    $(".form-login").css("display", "block");
+    $(".form-login").animate({
+      right: "0vw",
+      opacity: "1"
+    }, 400)
+  }, 400)
+  $("#log-in-form").submit(function (event) {
+    loginValid = {
+      userName: $("#username1").val(),
+      userPassword: $("#password1").val()
+    }
+    console.log(loginValid);
+
+    users.forEach(function (el) {
+      console.log(el.userName, loginValid.userName);
+
+      if (el.userName == loginValid.userName && el.userPassword == loginValid.userPassword) {
+        $("#total-display").hide()
+        $("#user-welcome").html("<span>Welcome</span><br>" + loginValid.userName)
+        $("#user-welcome").css({})
+        $("#user-welcome").animate({ 
+          opacity: "1"
+        }, "ease")
+      } else { 
+        $("#incorrect")
+          .css({
+            opacity: "1",
+            marginTop: "20px",
+            marginBottom: "20px"
+          }) 
+      }
+    })
+
+    event.preventDefault();
+  })
+}
+//////// SAVING THEME ////////

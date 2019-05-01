@@ -153,7 +153,7 @@ span.my-logo {
         cursor: default;
         display: none;
         position: absolute;
-        bottom: 50px;
+        bottom: 46px;
         left: 50%;
         transform: translate(-50%);
         text-align: center;
@@ -162,10 +162,10 @@ span.my-logo {
         font-size: 1em;
         line-height: 2em;
         padding: 10px 20px 10px 20px;
-        border-radius: 1em;
-        background: linear-gradient(#4b6484d5, #333550);
-        -webkit-border-radius: 27px;
-        width: 80%;
+        border-radius: 6px;
+        background: linear-gradient(#527096, #333550);
+        -webkit-border-radius: 6px;
+        width: 110%;
 
         &::after {
             content: "";
@@ -178,7 +178,7 @@ span.my-logo {
             bottom: -15px;
             right: calc(50% - 10px);
         }
-        #sign-in-start{
+        #sign-in-start, #log-in-start{
             color: #8be3fd;
             cursor: pointer;
             text-decoration: underline;
@@ -186,12 +186,15 @@ span.my-logo {
                 color: #ffa600;
             }
         }
+        #log-in-start{
+            color: #a7fba7;
+        }
     }
 
     button {
         position: relative;
         background-color: rgb(221, 221, 221);
-        border: 1px solid #020155;
+        border: 2px solid var(--my-bg-main);
         // padding: 10px 20px;
         // border-radius: 5px;
         line-height: 34px;
@@ -202,7 +205,7 @@ span.my-logo {
         font-weight: 700;
         border-radius: 4px;
     cursor: pointer;
-    color: #020155;
+    color: #333;
         width: 100%;
         &:hover{
             background-color: #4b6484d5;
