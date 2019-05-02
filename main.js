@@ -8,14 +8,17 @@ window.addEventListener("beforeunload", function () {
 })
 if (!localStorage.styles || localStorage.styles == 'undefined' || localStorage.styles == "null") {
   styles = [];
-} else {}
-var customStyles = localStorage.getItem("styles");
-var styles = JSON.parse(customStyles);
+  console.log(typeof (styles));
+
+} else {
+  var customStyles = localStorage.getItem("styles");
+  var styles = JSON.parse(customStyles);
+}
 
 // localStorage.clear()
 if (!localStorage.users || localStorage.users == 'undefined' || localStorage.users == "null") {
   users = [];
-  id=0;
+  id = 0;
   // localStorage.clear()
 } else {
   var myUsers = localStorage.getItem("users");
@@ -101,11 +104,18 @@ function Styles(id, name, size, color, scolor, bodyClass, shape, fontHead, fontP
   }
   this.changeSize = function (size) {
     return this.font_size = size;
-  } 
+  }
   this.changeClass = function (bodyClass) {
+    if (bodyClass !== "linear_ltr" || bodyClass !== "linear_ttb" || bodyClass !== "linear_tltbr" || bodyClass !== "linear_trtbl" || bodyClass !== "radial"){
     this.main_color = "";
     this.second_color = "";
     return this.bodyClass = bodyClass;
+    }else{
+    this.main_color = color;
+    this.second_color = scolor;
+    return this.bodyClass = bodyClass;
+  }
+ 
   }
 
   this.changeShape = function (shape) {
@@ -121,21 +131,33 @@ function Styles(id, name, size, color, scolor, bodyClass, shape, fontHead, fontP
     document.querySelector('body').style.fontSize = size + "px";
     myRoot.style.setProperty('--my-bg-main', color);
     myRoot.style.setProperty('--my-bg-second', scolor);
-    $('body').attr("class", bodyClass);
-
-    if (bodyClass !== "" || !bodyClass) {
-      var bodyBg = document.body;
-      console.log("uja");
-      setTimeout(function () { 
-        myRoot.style.setProperty('--my-bg-second', $(bodyBg).css("background-color"));
-      }, 2000)
-      myRoot.style.setProperty('--my-bg-main', "#fff"); 
-
-    }
     myRoot.style.setProperty('--my-shape', shape);
     myRoot.style.setProperty('--font-heading', fontHead);
     myRoot.style.setProperty('--font-paragraph', fontPara);
-  } 
+    $('body').attr("class", bodyClass);
+console.log(bodyClass);
+// if (bodyClass !== "linear_ltr" || bodyClass !== "linear_ttb" || bodyClass !== "linear_tltbr" || bodyClass !== "linear_trtbl" || bodyClass !== "radial"){
+//   $('body').css("background-image", "");
+// //   var bodyBg = document.body;
+// //   console.log("uja");
+// //   setTimeout(function () {
+// //     myRoot.style.setProperty('--my-bg-second', $(bodyBg).css("background-color"));
+// //   }, 2000)
+// //   myRoot.style.setProperty('--my-bg-main', "#fff");
+  
+// }else{
+//   console.log("ltr rdila");
+  
+//     myRoot.style.setProperty('--my-bg-main', color);
+//     myRoot.style.setProperty('--my-bg-second', scolor);
+// }
+// if($('body').is("class^='linear'")){
+  
+      // if (bodyClass == "linear_ltr") {
+      // }  
+
+    // }
+  }
 }
 
 var myStyles = new Styles;
@@ -351,7 +373,7 @@ function fontColor() {
   console.log(headerColor);
   for (var i = 0; i < headerColorRgb.length; i++) {
     rgbSumm = rgbSumm + parseInt(headerColorRgb[i]);
-    console.log(rgbSumm, parseInt(headerColorRgb[i]));
+    // console.log(rgbSumm, parseInt(headerColorRgb[i]));
   }
 
   if (rgbSumm > 490) {
@@ -397,8 +419,8 @@ $('.fonts').children().click(function (el) {
 
 //////// DISPLAY LOG-IN FORM ///////
 $("#sign-in-start").click(displayForm)
-  
-  function displayForm() {
+
+function displayForm() {
   console.log("UJaaa");
 
   $("#total-display").show();
@@ -500,15 +522,17 @@ $("#sign-in-form").submit(function (event) {
     userName: $("#username").val(),
     userPassword: $("#password").val()
   }
-  users.push(loginInfo); 
+  $(".form-signin").css("display", "block");
+  $(".form-login").css("display", "none");
+  users.push(loginInfo);
   logingIn(loginInfo);
   event.preventDefault();
 })
 
- 
 
+//////// DISPLAY FORM ON BUBBLE LINKS /////
 $("#log-in-span").click(logingIn);
-$("#log-in-start").click(function(){
+$("#log-in-start").click(function () {
   displayForm();
   $(".form-signin").css("display", "none");
   logingIn();
@@ -516,14 +540,14 @@ $("#log-in-start").click(function(){
 
 ///// LOGING IN ////////
 function logingIn(loginInfo) {
-  
-  $("#sign-in-form").trigger("reset"); 
+
+  $("#sign-in-form").trigger("reset");
   $(".form-signin").animate({
-    left: "-100vw", 
+    left: "-100vw",
   })
   setTimeout(function () {
-    $(".form-signin").css("display", "none"); 
-  }, 300) 
+    $(".form-signin").css("display", "none");
+  }, 300)
   $("#signinBtn").click(validationForm(loginInfo));
 }
 
@@ -533,7 +557,7 @@ function validationForm(loginInfo) {
     $("#total-display").attr("style", "display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex;");
     event.stopPropagation();
   });
-  setTimeout(function () { 
+  setTimeout(function () {
     $(".form-login").css("display", "block");
     $(".form-login").animate({
       right: "0vw",
@@ -554,22 +578,29 @@ function validationForm(loginInfo) {
         $("#total-display").hide()
         $("#user-welcome").html("<span>Welcome</span><br>" + loginValid.userName)
         $("#log-in-form").trigger("reset");
-        $("#user-welcome").animate({ 
+        $("#user-welcome").animate({
           opacity: "1"
         }, "ease")
-        $('.save-box').attr("class","save-box save-box2");
+        $('.save-box').attr("class", "save-box save-box2");
         $('#theme-name').show();
-var userId = el.id;
-console.log(userId);
-savingTheme(userId)
-
-      } else { 
+        var userId = el.id;
+        styles.forEach(function (style) {
+          if (style.user_id == userId) {
+            $('#favorites').show();
+            $(".fav-user").append('<div class="fav-item"><span class="theme-name" id="' + style.style_name + '">' + style.style_name + '</span><span class="remove" id="' + style.user_id + '">REMOVE<span></div>');
+          }
+        })
+        console.log(userId);
+        savingTheme(userId)
+        $('.theme-name').click(startTheme)
+        $('.remove').click(deleteTheme)
+      } else {
         $("#incorrect")
           .css({
             opacity: "1",
             marginTop: "20px",
             marginBottom: "20px"
-          }) 
+          })
       }
     })
 
@@ -577,27 +608,57 @@ savingTheme(userId)
   })
 }
 //////// SAVING THEME ////////
-function savingTheme(userId){
-  $("#saveButton").click(function(){
-    var themeName = $("#style-name").val()
-   $(".fav").html('<div class="fav-item">'+themeName+'</div>');
-   $('#favorites').show();  
-   var size = $('body').css("font-size");
-   var color = getComputedStyle(document.documentElement).getPropertyValue('--my-bg-main');
-   var scolor = getComputedStyle(document.documentElement).getPropertyValue('--my-bg-second');
-   var bodyClass = $('body').attr("class");
-   var shape = getComputedStyle(document.documentElement).getPropertyValue('--my-shape');
-   var fontHead = getComputedStyle(document.documentElement).getPropertyValue('--font-heading');
-   var fontPara = getComputedStyle(document.documentElement).getPropertyValue('--font-paragraph');
-   var savedStyle = new Styles(userId, themeName, size, color, scolor, bodyClass, shape, fontHead, fontPara);
-    console.log("houuuuja",savedStyle, Styles);
-    console.log(bodyClass);
-    $('.fav-item').click(function(el){
-      console.log($(el).text());
-      
-    })
+function savingTheme(userId) {
+  $("#saveButton").click(function () {
+    var themeName = $("#style-name").val();
+    $("#style-name").val('');
+    if (($(".fav-user").children().length) <= 4) {
+      $(".fav-user").append('<div class="fav-item"><span class="theme-name" id="' + themeName + '">' + themeName + '</span><span class="remove" id="' + userId + '">REMOVE<span></div>');
+      $('#favorites').show();
+      var size = $('body').css("font-size");
+      var color = getComputedStyle(document.documentElement).getPropertyValue('--my-bg-main');
+      var scolor = getComputedStyle(document.documentElement).getPropertyValue('--my-bg-second');
+      var bodyClass = $('body').attr("class");
+      var shape = getComputedStyle(document.documentElement).getPropertyValue('--my-shape');
+      var fontHead = getComputedStyle(document.documentElement).getPropertyValue('--font-heading');
+      var fontPara = getComputedStyle(document.documentElement).getPropertyValue('--font-paragraph');
+      var savedStyle = new Styles(userId, themeName, size, color, scolor, bodyClass, shape, fontHead, fontPara);
+      styles.push(savedStyle);
+      console.log(bodyClass);
+      $('.theme-name').click(startTheme)
+      $('.remove').click(deleteTheme)
+    } else {
+      alert("too much")
+    }
   })
-  
+
 }
 
- 
+
+///// STARTING THEME //////
+function startTheme(el) {
+  clearInterval(fadeInterval);
+  $('body').css("background", "");
+  el.preventDefault();
+  styles.forEach(function (elem) {
+    if (elem.style_name == el.target.id) {
+      myStyles.styleSetter(elem.user_id, elem.style_name, elem.font_size, elem.main_color, elem.second_color, elem.bodyClass, elem.element_shape, elem.fontHeading, elem.fontParagraph)
+    }
+  })
+}
+
+////// DELETING THEME //////
+function deleteTheme(el) {
+  // styles.forEach(function (elem) {
+  for(i=0; i<styles.length; i++){ 
+  if(styles[i].style_name == el.target.previousSibling.id){
+console.log(styles[i], i);
+styles.splice(i, 1);
+el.target.parentNode.parentNode.removeChild(el.target.parentNode);
+
+$("el.target.parentNode").hide();
+  }
+  }
+
+  el.preventDefault();
+}
