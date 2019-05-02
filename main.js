@@ -42,6 +42,7 @@ function myFunction() {
   } else {
     document.getElementById("headerHelper").className = "";
   }
+ 
 }
 $("#change-it").click(changeIt)
 
@@ -50,7 +51,7 @@ function changeIt() {
 
   $(".styles-container").css({
     display: "block",
-  });
+  })
 }
 
 //WELCOME NOTE AND INTRO FADE IN
@@ -69,7 +70,7 @@ setTimeout(function () {
 }, 1000)
 // })
 
-
+ 
 // for(var i =0; i<headerColorRgb.length; i++){
 //   rgbSumm = rgbSumm + parseInt(headerColorRgb[i]);
 // }
@@ -164,26 +165,29 @@ var myStyles = new Styles;
 var hover = false;
 ////// STYLES HOVER //////
 $(".styles-container").hover(showStylesContainer, hideStylesContainer);
-
-
+ 
 function showStylesContainer() {
   hover = true;
   $(".styles-container").css("left", "0");
   $('.brush-box').css("width", "88%");
   $(".brush-box").first().css("background-image", "url(././img/brush.svg)");
   $("#my-logo").css("background-image", "url(././img/david_damnjanovic_logo.svg)");
+  // $(".styles-container").css({
+  //   backgroundImage: "url(././img/brush-white.svg)",
+  //   backgroundSize: "40px",
+  //   backgroundRepeat: "no-repeat",
+  //   backgroundPosition: "88% 12px"
+  // })
+  
 };
 
 function hideStylesContainer() {
   hover = false;
   $('.dropmenu').css({
     "height": "0px",
-  });
-  // setTimeout(function(){
+  }); 
   $(".styles-container").css("left", "-280px");
-  $('.brush-box').css("width", "155%");
-
-  // }, 1000)
+  $('.brush-box').css("width", "160%"); 
   setTimeout(fontColor);
 }
 
@@ -191,25 +195,46 @@ function hideStylesContainer() {
 
 /////// DROPDOWN FUNCTION IN STYLING MENU ////////
 $('.dropdown').click(function (el) {
-  // $('.dropdown').children().removeClass("roto")
-  // $(el.target).children().addClass("roto");
+  
   $('.dropmenu').css({
     "height": "0px",
   });
   $(el.target).next().animate({
     height: $(el.target).next().get(0).scrollHeight
-  }, "ease");
-
-
-  console.log($(el.target).next().get(0).style.height, $(el.target).next().get(0).style.height);
-  if (Math.floor(parseInt(($(el.target).next().get(0).style.height))) != 0) {
-    $('.dropmenu').css({
-      "transition": "2s",
-    });
-    $('.dropmenu').attr({
-      style: "",
-    });
-  }
+    }, "0");
+    
+  
+    console.log("uja", Math.floor(parseInt(($(el.target).next().get(0).style.height))));
+  // console.log($(el.target).next().get(0).style.height, $(el.target).next().get(0).style.height);
+  // if (Math.floor(parseInt(($(el.target).next().get(0).style.height))) != 0) {
+  //   $('.dropmenu').css({
+  //     "transition": "2s",
+  //   });
+  //   $('.dropmenu').attr({
+  //     style: "",
+  //   });
+  // }
+  console.log($(el.target).next().get(0), $('.dropmenu'))
+  if(Math.floor(parseInt(($(el.target).next().get(0).style.height))) !== 0){
+    $(el.target).next().animate({
+      height: "0"
+    }, "0");
+    // var next = $(el.target).next().get(0);
+    // var drops = document.querySelectorAll(".dropmenu");
+    // for (i=0; i<drops.length ; i++){
+    //   drops[i].style.height = "0px";
+    //   drops[i].style.width = "300px";
+    // }
+    // $('.dropmenu').style.height="0";
+    // $('.dropmenu').height(120)
+    // $('.dropmenu').css({
+    //   "max-height": "0px!important",
+    //   // "border": "5px solid red"
+    // });
+    // $('next').height(0);
+    console.log("uja", Math.floor(parseInt(($(el.target).next().get(0).style.height))));
+    
+  };
 
 })
 

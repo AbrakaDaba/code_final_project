@@ -1,13 +1,20 @@
 #about { 
+  position: relative;
   padding-top: 70px;
   display: flex;
   flex-direction: column;
   background-color: var(--my-bg-second);
   transition: 3s;
   font-size: var(--my-font-size);
-  // &>div { 
- 
-
+  &:before { 
+    position: absolute;
+    content: "";
+    height: 70px;
+    width: 100%;
+    background-color: var(--my-bg-main);
+    top: 0px;
+    box-shadow: inset 0px 70px 210px rgba(0, 0, 0, 0.5);
+  }
     .aboutme {
       padding: 30px;
       color: var(--my-text);
@@ -36,14 +43,14 @@
     position: relative;
     width: calc(100% - 0px);
     overflow: hidden;
-    background-image: url(./../img/abrakaDaba.jpg);
+    background-image: url(./../img/abrakaDaba-removebg.png);
     background-repeat: no-repeat;
     background-position: center top;
-    background-color: var(--my-bg-second);
+    background-color: var(--my-bg-main);
     background-size: cover;
     padding-bottom: 120%;
-    box-shadow: inset 0px 0px 85px rgba(0, 0, 0, 0.5);
-
+    box-shadow: inset 0px 70px 185px rgba(0, 0, 0, 0.5);
+ 
     .fire {
       display: none;
       position: absolute;
