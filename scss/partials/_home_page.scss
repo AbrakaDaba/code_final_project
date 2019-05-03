@@ -1,8 +1,10 @@
 #home-page{
     height: 100%;
-    min-height: 100vh;
+    min-height: 100vh; 
     font-size: var(--my-font-size);
     padding-bottom: 0;
+    position: relative;
+    // overflow-x: hidden;
 }
 .welcome-note{
     line-height: calc(1.9vw + 13px);
@@ -14,6 +16,7 @@
     color: #e1deae;
     padding: 10px 0px;
     text-align: center;
+    // overflow: hidden;
     // border-radius: calc(var(--my-shape) - 20%);
     // background-color: rgba(30, 30, 30, 0.2);
     text-shadow: 0px -3px 6px #222;
@@ -83,9 +86,9 @@
 // }
 .question{ 
     width: calc(100% - 30px);
-    // opacity: 0;
+    opacity: 0;
     max-width: 100%;
-    margin: 2.2em auto;
+    margin: 1.5em auto;
     // border: 1px solid #aaa;
     color: #e1deae;
     padding: 10px 0px;
@@ -96,10 +99,10 @@
 }
 .yes-no-box{
     height: 125px;
-    width: 100%;
-    position: relative;
+    width: 100%; 
+    // position: relative;
 }
-#yes, #no{
+#yes, #no, #runningYes{
     font-size: 1.5em;
     color: #61dafb;
     text-shadow: 0px 0px 5px black;
@@ -117,6 +120,7 @@
     justify-content: center;
     align-items: center;
     transition: 4s;
+    cursor: pointer;
 }
 #yes{
     left: -125px;
@@ -131,4 +135,18 @@
 
 .rotation-left{
     transform: rotate(-360deg);
+}
+
+#runningYes{
+    display: none;
+    // position: absolute;
+    width: 175px;
+    height: 175px;
+    padding: 25px;
+    background-size: 71.5%;
+}
+
+#runningYes.flex-el{
+display: flex;
+transition: .2s;
 }

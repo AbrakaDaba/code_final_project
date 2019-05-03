@@ -105,16 +105,21 @@ a {
 #user-welcome {
   left: 50%;
   -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
   position: fixed;
-  top: 17px;
   width: 100%;
-  height: 0;
   text-align: center;
   z-index: 1013;
-  opacity: 0;
-  font-size: 15px;
+  opacity: 1;
+  font-size: 32px;
+  font-weight: bold;
   font-family: var(--font-paragraph);
+  background-color: #ffffff;
+  -webkit-box-shadow: inset 0px 0px 80px cadetblue;
+          box-shadow: inset 0px 0px 80px cadetblue;
+  text-transform: capitalize;
+  color: tomato;
+  line-height: 2;
 }
 
 #up-arrow {
@@ -142,6 +147,7 @@ a {
   min-height: 100vh;
   font-size: var(--my-font-size);
   padding-bottom: 0;
+  position: relative;
 }
 
 .welcome-note {
@@ -223,8 +229,9 @@ a {
 
 .question {
   width: calc(100% - 30px);
+  opacity: 0;
   max-width: 100%;
-  margin: 2.2em auto;
+  margin: 1.5em auto;
   color: #e1deae;
   padding: 10px 0px;
   text-align: center;
@@ -236,10 +243,9 @@ a {
 .yes-no-box {
   height: 125px;
   width: 100%;
-  position: relative;
 }
 
-#yes, #no {
+#yes, #no, #runningYes {
   font-size: 1.5em;
   color: #61dafb;
   text-shadow: 0px 0px 5px black;
@@ -263,6 +269,7 @@ a {
           align-items: center;
   -webkit-transition: 4s;
   transition: 4s;
+  cursor: pointer;
 }
 
 #yes {
@@ -281,6 +288,22 @@ a {
 .rotation-left {
   -webkit-transform: rotate(-360deg);
           transform: rotate(-360deg);
+}
+
+#runningYes {
+  display: none;
+  width: 175px;
+  height: 175px;
+  padding: 25px;
+  background-size: 71.5%;
+}
+
+#runningYes.flex-el {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .styles-container {
@@ -356,6 +379,10 @@ a {
   width: 34px;
 }
 
+.styles-container #magnifier {
+  width: 90px;
+}
+
 .styles-container label {
   line-height: 37px;
 }
@@ -420,7 +447,32 @@ span.my-logo {
   cursor: pointer;
 }
 
-.save-box #theme-name,
+.save-box #theme-name {
+  display: none;
+}
+
+.save-box button {
+  position: relative;
+  background-color: #dddddd;
+  border: 2px solid var(--my-bg-main);
+  line-height: 34px;
+  outline: none;
+  font-size: 14px;
+  margin: 0 auto;
+  display: block;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #333;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.save-box button:hover {
+  background-color: #4b6484d5;
+  color: #fff;
+}
+
 .save-box #favorites {
   display: none;
 }
@@ -429,7 +481,7 @@ span.my-logo {
   cursor: default;
   display: none;
   position: absolute;
-  bottom: 46px;
+  bottom: 66px;
   left: 50%;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
@@ -474,34 +526,13 @@ span.my-logo {
   color: #a7fba7;
 }
 
-.save-box button {
-  position: relative;
-  background-color: #dddddd;
-  border: 2px solid var(--my-bg-main);
-  line-height: 34px;
-  outline: none;
-  font-size: 14px;
-  margin: 0 auto;
-  display: block;
-  font-weight: 700;
-  border-radius: 4px;
-  cursor: pointer;
-  color: #333;
-  width: 100%;
-}
-
-.save-box button:hover {
-  background-color: #4b6484d5;
-  color: #fff;
-}
-
-.save-box:hover .note-baloon {
+div.save-box:hover .note-baloon {
   display: block;
   -webkit-transition: .3s;
   transition: .3s;
 }
 
-.save-box2:hover .note-baloon {
+div.save-box2:hover .note-baloon {
   display: none;
 }
 
@@ -538,6 +569,11 @@ span.my-logo {
   padding: 18px 8px;
   font-size: 14px;
   color: #023155;
+}
+
+.users-layouts {
+  text-transform: uppercase;
+  color: cadetblue;
 }
 
 .fav-user {
@@ -1045,6 +1081,7 @@ header {
   padding-top: 20%;
   font-weight: 700;
   line-height: 2;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 #about {

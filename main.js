@@ -42,33 +42,114 @@ function myFunction() {
   } else {
     document.getElementById("headerHelper").className = "";
   }
- 
 }
+
+
+var myStyles = new Styles;
+var hover = false;
+////// STYLES HOVER //////
+function stylesHover(){ 
+$(".styles-container").hover(showStylesContainer, hideStylesContainer);
+ 
+function showStylesContainer() {
+  hover = true;
+  $(".styles-container").css("left", "0");
+  $('.brush-box').css("width", "88%");
+  $(".brush-box").first().css("background-image", "url(././img/brush.svg)");
+  $("#my-logo").css("background-image", "url(././img/david_damnjanovic_logo.svg)");
+};
+
+function hideStylesContainer() {
+  hover = false;
+  $('.dropmenu').css({
+    "height": "0px",
+  }); 
+  $(".styles-container").css("left", "-280px");
+  $('.brush-box').css("width", "160%"); 
+  setTimeout(fontColor);
+}
+}
+stylesHover();
+
+
 $("#change-it").click(changeIt)
+$("#no").click(changeIt)
 
 function changeIt() {
-  showStylesContainer()
-
-  $(".styles-container").css({
-    display: "block",
-  })
+  stylesHover()
+  $(".styles-container").show()
+  $('.brush-box').css("width", "88%");
+  $(".styles-container").css("left", "0");
 }
 
+
+/////// HEIGT CALCULATION FOR ROLLING BUTTONS ///////
+function heightCalculator(){
+  var a, b, c;
+  a = document.querySelector(".welcome-note").scrollHeight;
+  b = document.querySelector("#intro").scrollHeight;
+  c = document.querySelector(".question").scrollHeight;
+  var elHeights = a+b+c+190 + "px"
+  $("#yes").css("top", elHeights)
+  $("#no").css("top", elHeights)
+  $("#runningYes").css("top", elHeights)
+  setTimeout(startRunningYes(elHeights), 1000)
+  
+}
+
+
+
 //WELCOME NOTE AND INTRO FADE IN
-// $(document).ready(function(){
-$(".welcome-note").animate({
-  opacity: "1",
-}, 1500);
+$(document).ready(function(){
+ 
+$(".welcome-note")
+.animate({opacity: "1"}, 1500)
 setTimeout(function () {
   $("#intro").animate({
+    opacity: "1",
+  }, 1500);
+  $(".question").animate({
     opacity: "1",
   }, 1500);
   $('#no').addClass('rotation-left');
   $('#no').css("right", "calc(50% - 145px)");
   $('#yes').addClass('rotation-right');
   $('#yes').css("left", "calc(50% - 145px)");
+  
+  heightCalculator()
+  
 }, 1000)
-// })
+})
+
+
+function startRunningYes() {
+  setTimeout(function(){
+    var x, y, noX, noY;
+    x = document.querySelector("#yes").offsetLeft;
+    y = document.querySelector("#yes").offsetTop;
+    var viewportWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+var viewportHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+console.log(viewportHeight, viewportWidth);
+     
+    $("#runningYes").css("left", x-25+"px");
+    $("#runningYes").css("top", y-25+"px");
+    $("#yes").hide();
+    $("#runningYes").addClass("flex-el");
+    console.log("ouuujaooouuu", x, y);
+$("#runningYes").on({mouseover:function(){
+  $("#runningYes").css("left" , Math.floor(Math.random() * viewportWidth*0.8) + "px");
+  $("#runningYes").css("top" , Math.floor(Math.random() * viewportHeight*0.8) + "px");
+console.log(document.querySelector("#runningYes").offsetLeft, document.querySelector("#runningYes").offsetTop);
+
+}
+})
+
+
+  }, 4000)
+  
+}
+
+
 
  
 // for(var i =0; i<headerColorRgb.length; i++){
@@ -161,37 +242,6 @@ console.log(bodyClass);
   }
 }
 
-var myStyles = new Styles;
-var hover = false;
-////// STYLES HOVER //////
-$(".styles-container").hover(showStylesContainer, hideStylesContainer);
- 
-function showStylesContainer() {
-  hover = true;
-  $(".styles-container").css("left", "0");
-  $('.brush-box').css("width", "88%");
-  $(".brush-box").first().css("background-image", "url(././img/brush.svg)");
-  $("#my-logo").css("background-image", "url(././img/david_damnjanovic_logo.svg)");
-  // $(".styles-container").css({
-  //   backgroundImage: "url(././img/brush-white.svg)",
-  //   backgroundSize: "40px",
-  //   backgroundRepeat: "no-repeat",
-  //   backgroundPosition: "88% 12px"
-  // })
-  
-};
-
-function hideStylesContainer() {
-  hover = false;
-  $('.dropmenu').css({
-    "height": "0px",
-  }); 
-  $(".styles-container").css("left", "-280px");
-  $('.brush-box').css("width", "160%"); 
-  setTimeout(fontColor);
-}
-
-
 
 /////// DROPDOWN FUNCTION IN STYLING MENU ////////
 $('.dropdown').click(function (el) {
@@ -250,10 +300,13 @@ document.querySelector(".fav-item").onclick = function () {
 }
 
 /////// MAGNIFIER ///////
+// $("#magnifier").on("change",heightCalculator)
+
 function f_magnifier() {
   var magnif_value = document.getElementById('magnifier').value;
   myRoot.style.setProperty('--my-font-size', magnif_value + "px");
   myStyles.changeSize(magnif_value + "px");
+  
   console.log(myStyles);
 }
 
@@ -601,11 +654,16 @@ function validationForm(loginInfo) {
 
       if (el.userName == loginValid.userName && el.userPassword == loginValid.userPassword) {
         $("#total-display").hide()
-        $("#user-welcome").html("<span>Welcome</span><br>" + loginValid.userName)
+        $("#user-welcome").html("<span>Welcome " + loginValid.userName + "! Thanks for visiting my website.</span>")
+        $(".users-layouts").text( loginValid.userName + "'s favorites")
+       changeIt()
         $("#log-in-form").trigger("reset");
         $("#user-welcome").animate({
-          opacity: "1"
-        }, "ease")
+          opacity: "0", 
+          // fontSize:"0"
+        },  3000, function(){
+          $("#user-welcome").slideUp();
+        } )
         $('.save-box').attr("class", "save-box save-box2");
         $('#theme-name').show();
         var userId = el.id;
@@ -619,6 +677,7 @@ function validationForm(loginInfo) {
         savingTheme(userId)
         $('.theme-name').click(startTheme)
         $('.remove').click(deleteTheme)
+        return
       } else {
         $("#incorrect")
           .css({
