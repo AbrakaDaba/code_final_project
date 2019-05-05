@@ -59,28 +59,11 @@ header, #headerHelper {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
-    box-shadow: 0 0 3px rgba(0,0,0,.7);
-    // border-radius: 50%;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
-    // width: 5.5em;
-    // height: 5.5em;
-    // position: absolute;
-    // z-index: 5;
-    // -webkit-transform: translate(-50%, -50%);
-    // -moz-transform: translate(-50%, -50%);
-    // -ms-transform: translate(-50%, -50%);
-    // -o-transform: translate(-50%, -50%);
-    // -webkit-border-radius: 50%;
-    // -moz-border-radius: 50%;
-    // -ms-border-radius: 50%;
-    // -o-border-radius: 50%;
+    // box-shadow: 0 0 3px rgba(0,0,0,.7);
+ 
     cursor: pointer;
   
-    &:hover {
-      background-image: url('./../img/david_damnjanovic_logo_white.svg');
-    }
+    
   }
   
   .my-logo2 {

@@ -1,5 +1,7 @@
 @media only screen and (min-width: 768px) {
-
+#message-box{
+    font-size: 4vw;
+}
     header,
     #headerHelper {
         ul {
@@ -75,6 +77,9 @@
 }
 
 @media only screen and (min-width: 1440px) {
+    #message-box{
+        font-size: 3vw;
+    }
     #about {
         .photo:hover {
             background-position: center 65%;

@@ -13,6 +13,7 @@
     top: 0px;
     z-index: 1010;
     border-bottom-right-radius: 6px;
+    // transition: .15s cubic-bezier(0.37, 0.31, 0.2, 0.85);
 // max-height: 100%;
 //     overflow-x: visible;
 //     overflow-y: scroll;
@@ -30,12 +31,13 @@
         text-align: left;
         cursor: pointer;
         line-height: 1em;
-        margin: 14px 0;
+        padding: 14px 0;
         background-image: url("./../img/dropdown-arrow.svg");
         background-repeat: no-repeat;
         background-position: right center;
         background-size: 15px;
         min-width: 215px;
+        font-size: 15px;
         svg {
             position: relative;
             top: 6px;
@@ -133,10 +135,8 @@ span.my-logo {
 
 
 .dropmenu {
-    height: 0;
-    overflow: hidden;
-
-    // overflow-y: scroll;
+    height: 0px;
+    overflow: hidden; 
     span {
         margin-bottom: 8px;
     }
@@ -197,13 +197,13 @@ span.my-logo {
         cursor: default;
         display: none;
         position: absolute;
-        bottom: 66px;
+        bottom: 80px;
         left: 50%;
         transform: translate(-50%);
         text-align: center;
         color: #fff;
         font-family: "font_bcm", sans-serif;
-        font-size: 1em;
+        font-size: 16px;
         line-height: 2em;
         padding: 10px 20px 10px 20px;
         border-radius: 6px;
@@ -306,6 +306,7 @@ div.save-box2:hover {
             white-space: nowrap;  
             overflow: hidden;
             text-overflow: ellipsis; 
+            min-width: 120px;
             &:hover {
                 color: #000;
             }

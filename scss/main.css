@@ -26,16 +26,14 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-transition: background-color 2s cubic-bezier(1, 1, 1, 1);
-  transition: background-color 2s cubic-bezier(1, 1, 1, 1);
   -webkit-transition-delay: 0s;
           transition-delay: 0s;
 }
 
 body * {
   margin: 0;
-  -webkit-transition: all 0.25s cubic-bezier(0.37, 0.31, 0.2, 0.85);
-  transition: all 0.25s cubic-bezier(0.37, 0.31, 0.2, 0.85);
+  -webkit-transition: all 0.15s cubic-bezier(0.37, 0.31, 0.2, 0.85);
+  transition: all 0.15s cubic-bezier(0.37, 0.31, 0.2, 0.85);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -120,6 +118,33 @@ a {
   text-transform: capitalize;
   color: tomato;
   line-height: 2;
+}
+
+#message-box {
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  position: fixed;
+  width: calc(100% - 30px);
+  z-index: 1013;
+  font-size: 9vw;
+  font-weight: bold;
+  font-family: var(--font-paragraph);
+  background-color: #000000;
+  text-transform: capitalize;
+  color: #31beea;
+  height: 0;
+  line-height: 80px;
+  text-align: center;
+  border-radius: 0px  0px  20px 20px;
+  top: 5px;
+  display: none;
+  opacity: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-shadow: 0 0 15px;
+          box-shadow: 0 0 15px;
 }
 
 #up-arrow {
@@ -334,12 +359,13 @@ a {
   text-align: left;
   cursor: pointer;
   line-height: 1em;
-  margin: 14px 0;
+  padding: 14px 0;
   background-image: url("./../img/dropdown-arrow.svg");
   background-repeat: no-repeat;
   background-position: right center;
   background-size: 15px;
   min-width: 215px;
+  font-size: 15px;
 }
 
 .styles-container h3 svg {
@@ -421,7 +447,7 @@ span.my-logo {
 }
 
 .dropmenu {
-  height: 0;
+  height: 0px;
   overflow: hidden;
 }
 
@@ -481,14 +507,14 @@ span.my-logo {
   cursor: default;
   display: none;
   position: absolute;
-  bottom: 66px;
+  bottom: 80px;
   left: 50%;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
   text-align: center;
   color: #fff;
   font-family: "font_bcm", sans-serif;
-  font-size: 1em;
+  font-size: 16px;
   line-height: 2em;
   padding: 10px 20px 10px 20px;
   border-radius: 6px;
@@ -595,6 +621,7 @@ div.save-box2:hover .note-baloon {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-width: 120px;
 }
 
 .fav-user .fav-item .theme-name:hover {
@@ -826,13 +853,7 @@ header {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
-          box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
   cursor: pointer;
-}
-
-.my-logo:hover {
-  background-image: url("./../img/david_damnjanovic_logo_white.svg");
 }
 
 .my-logo2 {
@@ -995,6 +1016,7 @@ header {
   z-index: -1;
   -webkit-transition: 1s ease-in-out;
   transition: 1s ease-in-out;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .html {
@@ -1452,7 +1474,7 @@ header {
   float: right;
 }
 
-#total-display {
+#form-display {
   display: none;
   width: 100%;
   height: 100%;
@@ -1467,8 +1489,8 @@ header {
   z-index: 1011;
 }
 
-#total-display .form-signin,
-#total-display .form-login {
+#form-display .form-signin,
+#form-display .form-login {
   position: relative;
   padding-bottom: 6px;
   font-size: 18px;
@@ -1478,25 +1500,24 @@ header {
   padding: 30px;
   margin: 0 auto;
   background-color: #4b6484bf;
-  border: 1px solid rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 5px 5px 25px black;
           box-shadow: 5px 5px 25px black;
 }
 
-#total-display .form-signin .form-signin-heading,
-#total-display .form-signin .form-login-heading,
-#total-display .form-login .form-signin-heading,
-#total-display .form-login .form-login-heading {
+#form-display .form-signin .form-signin-heading,
+#form-display .form-signin .form-login-heading,
+#form-display .form-login .form-signin-heading,
+#form-display .form-login .form-login-heading {
   text-align: center;
   margin-bottom: 10px;
   color: #d2cfa7;
   text-shadow: 1px 1px 5px #000;
 }
 
-#total-display .form-signin input,
-#total-display .form-signin button,
-#total-display .form-login input,
-#total-display .form-login button {
+#form-display .form-signin input,
+#form-display .form-signin button,
+#form-display .form-login input,
+#form-display .form-login button {
   width: 100%;
   line-height: 1.4;
   padding: 10px;
@@ -1506,48 +1527,52 @@ header {
   border-radius: 4px;
 }
 
-#total-display .form-signin button,
-#total-display .form-login button {
+#form-display .form-signin button,
+#form-display .form-login button {
   margin-top: 40px;
   font-weight: 700;
   cursor: pointer;
   color: #020155;
 }
 
-#total-display .form-signin button:hover,
-#total-display .form-login button:hover {
+#form-display .form-signin button:hover,
+#form-display .form-login button:hover {
   color: #fff;
   background-color: #c7d090;
 }
 
-#total-display .form-signin p,
-#total-display .form-login p {
+#form-display .form-signin p,
+#form-display .form-login p {
   margin-top: 15px;
   text-align: center;
   color: #fff;
 }
 
-#total-display .form-signin p span,
-#total-display .form-login p span {
+#form-display .form-signin p span,
+#form-display .form-login p span {
   color: #61dafb;
   cursor: pointer;
   text-decoration: underline;
 }
 
-#total-display .form-login {
+#form-display .form-signin {
+  left: -100vw;
+}
+
+#form-display .form-login {
   color: #034819;
   background-color: #82988abf;
   display: none;
-  opacity: 0;
+  opacity: 1;
   right: -100vw;
   padding-bottom: 0px;
 }
 
-#total-display .form-login .form-login-heading {
+#form-display .form-login .form-login-heading {
   margin-bottom: 0;
 }
 
-#total-display .form-login #incorrect {
+#form-display .form-login #incorrect {
   color: #e03c3c;
   opacity: 0;
   line-height: 42px;
@@ -1560,6 +1585,9 @@ header {
 }
 
 @media only screen and (min-width: 768px) {
+  #message-box {
+    font-size: 4vw;
+  }
   header ul a,
   #headerHelper ul a {
     font-size: 18px;
@@ -1627,6 +1655,9 @@ header {
 }
 
 @media only screen and (min-width: 1440px) {
+  #message-box {
+    font-size: 3vw;
+  }
   #about .photo:hover {
     background-position: center 65%;
   }
