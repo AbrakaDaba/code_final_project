@@ -1,6 +1,11 @@
+ 
+
+
 // var styles=[];
 // var users=[];
 var id;
+var yPosition = window.pageYOffset;
+
 window.addEventListener("beforeunload", function () {
   window.localStorage.setItem("styles", JSON.stringify(styles));
   window.localStorage.setItem("users", JSON.stringify(users));
@@ -33,10 +38,12 @@ window.onload = function () {
 //HEADER SHOWING ON SCROLL
 var myRoot = document.documentElement;
 window.onscroll = function () {
-  myFunction()
+  headeronScroll()
+  yPosition = window.pageYOffset;
+  console.log(yPosition);
 };
 
-function myFunction() {
+function headeronScroll() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
     document.getElementById("headerHelper").className = "header-helper2";
   } else {
@@ -83,21 +90,6 @@ function changeIt() {
 }
 
 
-/////// HEIGT CALCULATION FOR ROLLING BUTTONS ///////
-function heightCalculator() {
-  var a, b, c;
-  a = document.querySelector(".welcome-note").scrollHeight;
-  b = document.querySelector("#intro").scrollHeight;
-  c = document.querySelector(".question").scrollHeight;
-  var elHeights = a + b + c + 190 + "px"
-  $("#yes").css("top", elHeights)
-  $("#no").css("top", elHeights)
-  $("#runningYes").css("top", elHeights)
-  setTimeout(startRunningYes(elHeights), 1000)
-
-}
-
-
 
 //WELCOME NOTE AND INTRO FADE IN
 $(document).ready(function () {
@@ -122,26 +114,69 @@ $(document).ready(function () {
 
   }, 1000)
 })
+ 
+$(window).resize(function(){
+  $("#no").css("transition", ".5s")
+  setTimeout(function(){
+    var a, b, c, x;
+    x = window.innerWidth/2 - 150
+    a = document.querySelector(".welcome-note").scrollHeight;
+    b = document.querySelector("#intro").scrollHeight;
+    c = document.querySelector(".question").scrollHeight;
+    var elHeights = a + b + c + 190 + "px";
+    var elHeights2 = a + b + c + 215 + "px";
+    $("#runningYes").css("top", elHeights)
+    $("#runningYes").css("left", x - 25 + "px");
+    $("#no").css("top", elHeights2)
+    var viewportWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    var viewportHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    $("#runningYes").on({
+    click: function () {
+      $("#runningYes").css("left", Math.floor(Math.random() * viewportWidth * 0.75) + "px");
+      $("#runningYes").css("top", Math.floor(Math.random() * viewportHeight * 0.75)+ yPosition + "px");
+  
+    }
+  })
+  },500)
+ 
+})
+
+/////// HEIGT CALCULATION FOR ROLLING BUTTONS ///////
+function heightCalculator() {
+  var a, b, c;
+
+  
+  a = document.querySelector(".welcome-note").scrollHeight;
+  b = document.querySelector("#intro").scrollHeight;
+  c = document.querySelector(".question").scrollHeight;
+  var elHeights = a + b + c + 190 + "px"
+  $("#yes").css("top", elHeights)
+  $("#no").css("top", elHeights)
+  $("#runningYes").css("top", elHeights)
+  setTimeout(startRunningYes(elHeights), 1000)
+}
 
 
 function startRunningYes() {
   setTimeout(function () {
-    var x, y, noX, noY;
+    var x, y;
     x = document.querySelector("#yes").offsetLeft;
     y = document.querySelector("#yes").offsetTop;
     var viewportWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     var viewportHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     console.log(viewportHeight, viewportWidth);
-
+    var angle = 160
     $("#runningYes").css("left", x - 25 + "px");
     $("#runningYes").css("top", y - 25 + "px");
     $("#yes").hide();
     $("#runningYes").addClass("flex-el");
     $("#runningYes").on({
-      mouseover: function () {
+      click: function () {
+        angle= angle+260
+        $("#runningYes").css("transform", "rotate("+ angle +"deg)");
+       
         $("#runningYes").css("left", Math.floor(Math.random() * viewportWidth * 0.75) + "px");
-        $("#runningYes").css("top", Math.floor(Math.random() * viewportHeight * 0.75) + "px");
-
+        $("#runningYes").css("top", Math.floor(Math.random() * viewportHeight * 0.75)+ yPosition + "px");
       }
     })
   }, 4000)
@@ -496,11 +531,11 @@ function displayLogIn() {
   })
 }
 
-function hideFormDisplay() { 
+function hideFormDisplay() {
   $('#form-display').hide();
   $("body").css("overflow", "auto");
-  $("#sign-in-form").trigger("reset"); 
-  $("#log-in-form").trigger("reset"); 
+  $("#sign-in-form").trigger("reset");
+  $("#log-in-form").trigger("reset");
 };
 
 //////// BUBBLE LINKS- DISPLAY SIGN-IN FORM ///////
@@ -514,7 +549,7 @@ function signingIn() {
 
 //////// BUBBLE LINKS- DISPLAY LOG-IN FORM ///////
 function logIn() {
-  $("#log-in-form").trigger("reset"); 
+  $("#log-in-form").trigger("reset");
   startFormsPosition();
   displayLogIn();
   setTimeout(function () {
@@ -543,20 +578,46 @@ $("#sign-in-form").submit(function (event) {
     userName: $("#username").val(),
     userPassword: $("#password").val()
   }
-  $(".form-signin").animate({
-    left: "-100vw",
-  })
-  setTimeout(function () {
-    $(".form-signin").css("display", "none");
-  }, 400)
-  users.push(loginInfo); 
-  $("#signinBtn").click(validationForm(loginInfo));
-  event.preventDefault();
+  console.log(users.length);
+
+  if (users.length !== 0) {
+    users.forEach(function (el) {
+      console.log(loginInfo.userName, el.userName)
+      if (loginInfo.userName == el.userName) {
+        messageBox("Sorry... username already taken")
+        // $('#sign-in-form').trigger("reset")
+        return
+      } else {
+        $(".form-signin").animate({
+          left: "-100vw",
+        })
+        setTimeout(function () {
+          $(".form-signin").css("display", "none");
+        }, 400)
+        users.push(loginInfo);
+        $("#signinBtn").click(validationForm(loginInfo));
+        event.preventDefault();
+
+      }
+    })
+
+  } else {
+    $(".form-signin").animate({
+      left: "-100vw",
+    })
+    setTimeout(function () {
+      $(".form-signin").css("display", "none");
+    }, 400)
+    users.push(loginInfo);
+    $("#signinBtn").click(validationForm(loginInfo));
+    event.preventDefault();
+
+  }
 })
 
 
 ///// VALIDATION FORM //////
-function validationForm(loginInfo) { 
+function validationForm(loginInfo) {
 
   setTimeout(function () {
     $(".form-login").css("display", "block");
@@ -571,48 +632,40 @@ function validationForm(loginInfo) {
     loginValid = {
       userName: $("#username1").val(),
       userPassword: $("#password1").val()
-    } 
+    }
 
-    users.forEach(function (el) {  
-      if (el.userName == loginValid.userName && el.userPassword == loginValid.userPassword) {
-        hideFormDisplay()
-        $('.save-box').attr("class", "save-box save-box2");
-        $('#theme-name').show();
-        messageBox("Welcome " + loginValid.userName); 
-        var userId = el.id;
-        styles.forEach(function (style) {
-          if (style.user_id == userId) {
-            $('#favorites').show();
-            $(".fav-user").append('<div class="fav-item"><span class="theme-name" id="' + style.style_name + '">' + style.style_name + '</span><span class="remove" id="' + style.user_id + '">REMOVE<span></div>');
-          }
-        }) 
-        savingTheme(userId)
-        $('.theme-name').click(startTheme)
-        $('.remove').click(deleteTheme)
-        // return
-      } else {
-        $("#incorrect")
-          .css({
-            opacity: "1",
-            marginTop: "20px",
-            marginBottom: "20px"
+    if (users.length == 0) {
+      messageBox("You have to sign in first")
+    } else {
+      users.forEach(function (el) {
+
+        if (el.userName == loginValid.userName && el.userPassword == loginValid.userPassword) {
+          hideFormDisplay()
+          $('.save-box').attr("class", "save-box save-box2");
+          $('#theme-name').show();
+          messageBox("Welcome " + loginValid.userName);
+          var userId = el.id;
+          styles.forEach(function (style) {
+            if (style.user_id == userId) {
+              $('#favorites').show();
+              $(".fav-user").append('<div class="fav-item"><span class="theme-name" id="' + style.style_name + '">' + style.style_name + '</span><span class="remove" id="' + style.user_id + '">REMOVE<span></div>');
+            }
           })
-      }
-    }) 
+          savingTheme(userId)
+          $('.theme-name').click(startTheme)
+          $('.remove').click(deleteTheme)
+          // return
+        } else {
+          $("#incorrect")
+            .css({
+              opacity: "1",
+              marginTop: "20px",
+              marginBottom: "20px"
+            })
+        }
+      })
+    }
     event.preventDefault();
-  })
-}
-
-function welcomeNote(){
-  $("#user-welcome").html("<span>Welcome " + loginValid.userName + "! Thanks for visiting my website.</span>")
-  $(".users-layouts").text(loginValid.userName + "'s favorites")
-  changeIt()
-  $("#log-in-form").trigger("reset");
-  $("#user-welcome").animate({
-    opacity: "0",
-    // fontSize:"0"
-  }, 3000, function () {
-    $("#user-welcome").slideUp();
   })
 }
 
@@ -620,8 +673,10 @@ function welcomeNote(){
 //////// SAVING THEME ////////
 function savingTheme(userId) {
   $("#saveButton").click(function () {
-    if($("#style-name").val()!== ""){
-      var themeName = $("#style-name").val();
+    var themeName = $("#style-name").val();
+    console.log(themeName);
+
+    if (themeName !== "") {
       $("#style-name").val('');
       if (($(".fav-user").children().length) <= 4) {
         $(".fav-user").append('<div class="fav-item"><span class="theme-name" id="' + themeName + '">' + themeName + '</span><span class="remove" id="' + userId + '">REMOVE<span></div>');
@@ -639,37 +694,35 @@ function savingTheme(userId) {
         $('.theme-name').click(startTheme)
         $('.remove').click(deleteTheme)
       } else {
-        alert("5 themes maximum")
+        messageBox("You can save up to 5 themes");
       }
 
-    }else{
-      alert("Please enter some name")
+    } else {
+      messageBox("Please enter theme name");
     }
   })
 
 }
-function messageBox(text){
+
+/////// MESSAGE BOX //////////
+function messageBox(text) {
 
   $("#message-box")
-  .show() 
-  .fadeTo(1000, "1")
-  .animate({
-height:"80px"
-  },2000);
- setTimeout(function(){
+    .css({
+      marginTop: "0px",
+      opacity: "1"
+    });
+
   $("#message-box").text(text)
-  $("#message-box")
-
-  setTimeout(function(){
+  setTimeout(function () {
     $("#message-box")
-  .show() 
-  .fadeTo(2000, "0")
-  .animate({
-height:"0px"
-  },2000)
-  .hide()
-  },3000)
- }, 500)
+
+      .css({
+        marginTop: "-80px",
+        opacity: "0"
+      })
+
+  }, 4000)
 }
 
 

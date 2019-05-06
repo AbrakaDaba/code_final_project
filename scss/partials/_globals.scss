@@ -27,7 +27,7 @@ body {
   box-sizing: border-box;
   background: var(--my-body-bg);
   user-select: none;
-  // transition: background-color 2s cubic-bezier(1, 1, 1, 1);
+  transition: background-color 2s cubic-bezier(1, 1, 1, 1);
   transition-delay: 0s; 
   * {
     margin: 0;
@@ -144,18 +144,17 @@ font-family: var(--font-paragraph);
 background-color: #000000;
 text-transform: capitalize;
 color: #31beea;
-// min-height: 10%;
-height: 0;
+margin-top: -80px;
+height: 80px;
 line-height: 80px;
 text-align: center;
-border-radius:  0px  0px  20px 20px;
-top: 5px;
-display: none;
+border-radius:  0px  0px  20px 20px; 
 opacity: 0;
 white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis;
   box-shadow: 0 0 15px;
+  transition: 4s;
 // &:after{
 //   content: "";
 //     width: 0;
