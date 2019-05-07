@@ -48,6 +48,7 @@ body #background-box {
   overflow: auto;
   background-repeat: no-repeat;
   position: relative;
+  overflow: hidden;
 }
 
 body #background-box svg {
@@ -203,7 +204,7 @@ a {
   width: calc(100% - 30px);
   opacity: 0;
   max-width: 100%;
-  margin: 2.2em auto;
+  margin: 1em auto 2em auto;
   color: #e1deae;
   padding: 10px 0px;
   text-align: center;
@@ -235,7 +236,7 @@ a {
   width: calc(100% - 30px);
   opacity: 0;
   max-width: 665px;
-  margin: 2.2em auto;
+  margin: 1em auto;
   border: 1px solid #aaa;
   color: #e1deae;
   padding: 10px 20px;
@@ -280,7 +281,7 @@ a {
   width: calc(100% - 30px);
   opacity: 0;
   max-width: 100%;
-  margin: 1.5em auto;
+  margin: .5em auto 1em auto;
   color: #e1deae;
   padding: 10px 0px;
   text-align: center;
@@ -836,7 +837,7 @@ header ul .my-logo, #headerHelper ul .my-logo {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
-  background-color: rgba(125, 125, 125, 0.5);
+  background-color: rgba(195, 195, 195, 0.5);
   width: 47px;
   height: 47px;
   z-index: 5;
@@ -1381,6 +1382,11 @@ header {
   font-size: 1.5em;
 }
 
+#about .aboutme p .cooking {
+  cursor: pointer;
+  color: #61dafb;
+}
+
 #about .photo {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
@@ -1397,8 +1403,8 @@ header {
   padding-bottom: 120%;
   -webkit-box-shadow: inset 0px -40px 145px rgba(0, 0, 0, 0.75);
           box-shadow: inset 0px -40px 145px rgba(0, 0, 0, 0.75);
-  -webkit-filter: sepia(0.4);
-          filter: sepia(0.4);
+  -webkit-filter: sepia(0.3);
+          filter: sepia(0.3);
 }
 
 #about .photo .fire {
@@ -1414,23 +1420,42 @@ header {
   background-repeat: no-repeat;
   background-position: center bottom;
   border-radius: 0 0 55% 55%;
+  -webkit-transition: 2s;
+  transition: 2s;
 }
 
-#about .photo:hover {
-  background-image: url("./../img/magic_bean_by_David.jpg");
-  background-position: center 5%;
+#about .contact-icon {
+  margin-top: 15px;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
-#about .photo:hover .fire {
-  display: block;
+#about .contact-icon:hover {
+  background-color: #61dafb;
+  -webkit-transform: scale(1.07);
+          transform: scale(1.07);
 }
 
-.photo:hover {
-  background-image: url("./../img/magic_bean_by_David.jpg");
+#about .email {
+  background-image: url(./../img/socnet/email.png);
+  background-size: 115%;
 }
 
-.photo:hover .fire {
-  display: block;
+#about .linkedin {
+  background-image: url(./../img/socnet/linkedin.svg);
+  opacity: .9;
+}
+
+#about .github {
+  background-image: url(./../img/socnet/github.svg);
+  opacity: .9;
 }
 
 .custom-nav {
@@ -1819,6 +1844,21 @@ header {
   #headerHelper ul a {
     font-size: 18px;
   }
+  #home-page .welcome-note {
+    line-height: calc(2.5vw + 13px);
+    margin: 1em auto 2.5em auto;
+  }
+  #home-page .welcome-note h2 {
+    font-size: calc(4vw + 6px + 1em);
+  }
+  #home-page .question {
+    font-size: calc(2vw + 13px);
+    padding: 10px 0px 30px 0px;
+  }
+  #works h3,
+  #skills h3 {
+    font-size: 2.5em;
+  }
   #skills .tns {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1852,7 +1892,7 @@ header {
   #about .photo .fire {
     position: absolute;
     bottom: 43px;
-    width: 230px;
+    width: 38%px;
     height: 15%;
     background-image: url(./../img/fire2.gif);
     z-index: 1000;
@@ -1861,20 +1901,20 @@ header {
     background-position: center bottom;
     border-radius: 0 0 65% 65%;
   }
-  #about .photo:hover {
-    background-position: center 95%;
-  }
   #about .aboutme {
     width: 50%;
   }
   #about .aboutme h3 {
-    font-size: 2em;
+    font-size: 2.5em;
   }
   #about:before {
     width: 50%;
   }
+  #about p.my-text-font {
+    font-size: 1.8em;
+  }
   #intro {
-    font-size: 2em;
+    font-size: 2.1em;
   }
   .skill-text {
     display: none;
@@ -1885,12 +1925,23 @@ header {
   #message-box {
     font-size: 3vw;
   }
-  #about .photo:hover {
-    background-position: center 65%;
+  #home-page .question {
+    padding: 30px 0px 60px 0px;
   }
-  #about .photo:hover .fire {
-    width: 280px;
-    bottom: -5px;
+  #works h3,
+  #skills h3 {
+    font-size: 3.5em;
+  }
+  #about .photo .fire {
+    width: 32%;
+    bottom: 25px;
+    left: 32%;
+  }
+  #about .aboutme h3 {
+    font-size: 3.5em;
+  }
+  #about p.my-text-font {
+    font-size: 2.5em;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -3,8 +3,8 @@
  var id;
  var yPosition = window.pageYOffset;
  var myRoot = document.documentElement;
-
-
+  var yesEvent = "click"
+var screenLarge = true;
 
  window.addEventListener("beforeunload", function () {
    window.localStorage.setItem("styles", JSON.stringify(styles));
@@ -105,8 +105,8 @@
      a = document.querySelector(".welcome-note").scrollHeight;
      b = document.querySelector("#intro").scrollHeight;
      c = document.querySelector(".question").scrollHeight;
-     var elHeights = a + b + c + 190 + "px";
-     var elHeights2 = a + b + c + 190 + "px";
+     var elHeights = a + b + c + 145 + "px";
+     var elHeights2 = a + b + c + 145 + "px";
      $("#runningYes").css("top", elHeights)
      $("#runningYes").css("left", x + "px");
      $("#no").css("top", elHeights2)
@@ -131,7 +131,7 @@
    a = document.querySelector(".welcome-note").scrollHeight;
    b = document.querySelector("#intro").scrollHeight;
    c = document.querySelector(".question").scrollHeight;
-   var elHeights = a + b + c + 190 + "px"
+   var elHeights = a + b + c + 145 + "px"
    $("#yes").css("top", elHeights)
    $("#no").css("top", elHeights)
    $("#runningYes").css("top", elHeights)
@@ -152,15 +152,14 @@
      $("#runningYes").css("top", y + "px");
      $("#yes").hide();
      $("#runningYes").addClass("flex-el");
-     $("#runningYes").on({
-       click: function () {
+     $("#runningYes").on(yesEvent, function () {
          angle = angle + 260
          $("#runningYes").css("transform", "rotate(" + angle + "deg)");
 
          $("#runningYes").css("left", Math.floor(Math.random() * viewportWidth * 0.75) + "px");
          $("#runningYes").css("top", Math.floor(Math.random() * viewportHeight * 0.75) + yPosition + "px");
-       }
-     })
+       })
+     
    }, 4000)
 
  }
@@ -827,9 +826,10 @@
               scrollTop: $("#skills").offset().top ,
             }, 1500); 
           }) 
+          screenLarge = false;
         }  else{
           console.log("uauuu");
-          
+          yesEvent = "mouseover";
           $(".skill").click(function (el) {
             $('html, body').animate({
               scrollTop: $(el.target).offset().top-220 ,
@@ -855,3 +855,39 @@ function contraDirection(event) {
       circle.style.transform= "translate3d("+Math.floor(x/centerX*(-30))+"px, "+Math.floor(y/centerY*(-30))+"px, 0px)"
     } 
 }
+
+$(".cooking").click(function(){  
+  $(".photo").css({ 
+    backgroundImage: 'url(../../img/magic_bean_by_David.jpg)',
+    // backgroundPosition: "center 5%",
+    // backgroundSize: "auto 100%",
+    backgroundColor:"rgb(31, 19, 2)"
+  })
+  if(!screenLarge){
+    $(".photo").css({
+      backgroundPosition: "center 5%",
+      backgroundSize: "cover",
+    })
+    console.log("screenLarge")
+  }else{
+    $(".photo").css({
+      backgroundPosition: "center top",
+      backgroundSize: "auto 100%",
+    })
+    console.log("screenSmall")
+  }
+  $(".fire").show();
+  $('html, body').animate({
+    scrollTop: $(".photo").offset().top
+  }, 2000); 
+  
+  setTimeout(function(){
+    $(".photo").css({ 
+    backgroundImage: 'url(./../img/abrakaDaba-removebg.png)',
+    backgroundPosition: "center top",
+    backgroundSize: "cover",
+    backgroundColor: "var(--my-bg-second)",
+  })
+  $(".fire").hide();
+  }, 5000)
+})

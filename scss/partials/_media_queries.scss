@@ -1,13 +1,37 @@
 @media only screen and (min-width: 768px) {
-#message-box{
-    font-size: 4vw;
-}
+    #message-box {
+        font-size: 4vw;
+    }
+
     header,
     #headerHelper {
         ul {
             a {
                 font-size: 18px;
             }
+        }
+    }
+
+    #home-page {
+        .welcome-note {
+            line-height: calc(2.5vw + 13px);
+    margin: 1em auto 2.5em auto;
+
+            h2 {
+                font-size: calc(4vw + 6px + 1em);
+            }
+        }
+
+        .question {
+            font-size: calc(2vw + 13px);
+            padding: 10px 0px 30px 0px;
+        }
+    }
+
+    #works,
+    #skills {
+        h3 {
+            font-size: 2.5em;
         }
     }
 
@@ -42,7 +66,7 @@
                 position: absolute;
                 bottom: 43px;
                 // left: initial;
-                width: 230px;
+                width: 38%px;
                 height: 15%;
                 background-image: url(./../img/fire2.gif);
                 z-index: 1000;
@@ -53,42 +77,75 @@
             }
 
             &:hover {
-                background-position: center 95%;
+                // background-position: center 95%;
             }
         }
-        .aboutme{
+
+        .aboutme {
             width: 50%;
-            h3{
-                font-size: 2em;
+
+            h3 {
+                font-size: 2.5em;
             }
         }
-        &:before{
+
+        &:before {
             width: 50%;
+        }
+
+        p.my-text-font {
+            font-size: 1.8em;
         }
     }
 
     #intro {
-        font-size: 2em;
+        font-size: 2.1em;
     }
 
     .skill-text {
         display: none;
     }
+
 }
 
 @media only screen and (min-width: 1440px) {
-    #message-box{
+    #message-box {
         font-size: 3vw;
     }
-    #about {
-        .photo:hover {
-            background-position: center 65%;
-            .fire{
-                width: 280px;
-                bottom: -5px;
-            }
-            
-        }
-        
+#home-page{
+    .question{
+        padding: 30px 0px 60px 0px;
     }
+}
+    #works,
+    #skills {
+        h3 {
+            font-size: 3.5em;
+        }
+    }
+
+    #about {
+        .photo {
+
+            // background-position: 10% 65%;
+            .fire {
+                width: 32%;
+                bottom: 25px;
+                left: 32%;
+            }
+
+        }
+
+        .aboutme {
+            h3 {
+                font-size: 3.5em;
+            }
+        }
+
+        p.my-text-font {
+            font-size: 2.5em;
+        }
+
+    }
+
 }

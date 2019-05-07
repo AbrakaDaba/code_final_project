@@ -1,10 +1,11 @@
-#about { 
+#about {
   position: relative;
   padding-top: 70px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   transition: 3s;
   font-size: var(--my-font-size);
+
   // &:before { 
   //   position: absolute;
   //   content: "";
@@ -14,25 +15,33 @@
   //   top: 0px;
   //   box-shadow: inset 0px 70px 210px rgba(0, 0, 0, 0.5);
   // }
-    .aboutme {
-      order: 1;
-      padding: 30px;
-      color: var(--my-text);
-      box-sizing: border-box;
-      display: flex;
-        justify-content: center;
-        align-items: center;
-      background-color: var(--my-bg-second);
-        h3 {
-          margin-top: 25px;
-          margin-bottom: 50px;
-          font-size: 2em;
-        }
-        p{
-          font-size: 1.5em;
-        }
+  .aboutme {
+    order: 1;
+    padding: 30px;
+    color: var(--my-text);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--my-bg-second);
+
+    h3 {
+      margin-top: 25px;
+      margin-bottom: 50px;
+      font-size: 2em;
+    }
+
+    p {
+      font-size: 1.5em;
+
+      .cooking {
+        cursor: pointer;
+        color: #61dafb;
       }
-    // }
+    }
+  }
+
+  // }
   // }
 
   .photo {
@@ -48,7 +57,8 @@
     background-size: cover;
     padding-bottom: 120%;
     box-shadow: inset 0px -40px 145px rgba(0, 0, 0, 0.75);
-    filter: sepia(.4);
+    filter: sepia(.3);
+
     .fire {
       display: none;
       position: absolute;
@@ -62,29 +72,58 @@
       background-repeat: no-repeat;
       background-position: center bottom;
       border-radius: 0 0 55% 55%;
+      transition: 2s;
     }
 
-    &:hover {
-      background-image: url("./../img/magic_bean_by_David.jpg");
-      background-position: center 5%;
-
-      .fire {
-        display: block;
-      }
-    }
+    // &:hover {
+    //   // background-image: url("./../img/magic_bean_by_David.jpg");
+    //   // background-position: center 5%;
+    //   transition: 2s;
+    //   .fire {
+    //     display: block;
+    //   }
+    // }
   }
 
 
+  .contact-icon {
+    margin-top: 15px;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: inline-block;
+    border-radius: 50%;
+    cursor: pointer;
+    &:hover{
+      background-color: #61dafb;
+      transform: scale(1.07); 
+    }
+  }
 
-}
-
-.photo:hover {
-  background-image: url("./../img/magic_bean_by_David.jpg");
-
-  .fire {
-    display: block;
+  .email {
+    background-image: url(./../img/socnet/email.png);
+    background-size: 115%;
+  }
+  .linkedin {
+    background-image: url(./../img/socnet/linkedin.svg); 
+    opacity: .9;
+  }
+  .github {
+    background-image: url(./../img/socnet/github.svg); 
+    opacity: .9;
   }
 }
+
+// .photo:hover {
+//   background-image: url("./../img/magic_bean_by_David.jpg");
+
+//   .fire {
+//     display: block;
+//   }
+// }
 
 
 
