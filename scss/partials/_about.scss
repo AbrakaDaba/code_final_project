@@ -2,30 +2,27 @@
   position: relative;
   padding-top: 70px;
   display: flex;
-  flex-direction: column;
-  background-color: var(--my-bg-second);
+  flex-direction: column; 
   transition: 3s;
   font-size: var(--my-font-size);
-  &:before { 
-    position: absolute;
-    content: "";
-    height: 70px;
-    width: 100%;
-    background-color: var(--my-bg-main);
-    top: 0px;
-    box-shadow: inset 0px 70px 210px rgba(0, 0, 0, 0.5);
-  }
+  // &:before { 
+  //   position: absolute;
+  //   content: "";
+  //   height: 70px;
+  //   width: 100%;
+  //   background-color: var(--my-bg-main);
+  //   top: 0px;
+  //   box-shadow: inset 0px 70px 210px rgba(0, 0, 0, 0.5);
+  // }
     .aboutme {
+      order: 1;
       padding: 30px;
       color: var(--my-text);
       box-sizing: border-box;
       display: flex;
         justify-content: center;
         align-items: center;
-      // div{
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
+      background-color: var(--my-bg-second);
         h3 {
           margin-top: 25px;
           margin-bottom: 50px;
@@ -39,6 +36,7 @@
   // }
 
   .photo {
+    order: 2;
     max-height: 100vh;
     position: relative;
     width: calc(100% - 0px);
@@ -46,11 +44,11 @@
     background-image: url(./../img/abrakaDaba-removebg.png);
     background-repeat: no-repeat;
     background-position: center top;
-    background-color: var(--my-bg-main);
+    background-color: var(--my-bg-second);
     background-size: cover;
     padding-bottom: 120%;
-    box-shadow: inset 0px 70px 185px rgba(0, 0, 0, 0.5);
- 
+    box-shadow: inset 0px -40px 145px rgba(0, 0, 0, 0.75);
+    filter: sepia(.4);
     .fire {
       display: none;
       position: absolute;

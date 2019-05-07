@@ -1,5 +1,6 @@
 #skills {
     padding-top: 70px;
+    padding-bottom: 0;
     position: relative;
     height: 100%;
     font-size: var(--my-font-size);
@@ -176,6 +177,8 @@ background-size: 75%;
 }
 
 .skill-text{
+    width: calc(100% - 30px);
+    margin: 0 auto;
     display: block;
     line-height: 50%;
     font-size: 2em;
