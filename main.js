@@ -400,22 +400,22 @@
      shapes[i].addEventListener("click", function (el) {
        myRoot.style.setProperty('--my-shape', getComputedStyle(el.target).borderRadius)
        myStyles.changeShape(getComputedStyle(el.target).borderRadius)
-       if (getComputedStyle(el.target).borderRadius == "50%") {
-         $('#my-logo').css({
-           "background-size": "111%",
-           "background-position": "-1px -2px",
-           "border-radius": "50%",
-           "border": "1px solid black"
-         })
-       } else {
-         $('#my-logo').css({
-           "background-size": "cover",
-           "background-position": "center center",
-           "border-radius": "0",
-           "border": "none",
-         })
+      //  if (getComputedStyle(el.target).borderRadius == "50%") {
+      //    $('#my-logo').css({
+      //      "background-size": "111%",
+      //      "background-position": "-1px -2px",
+      //      "border-radius": "50%",
+      //      "border": "1px solid black"
+      //    })
+      //  } else {
+      //    $('#my-logo').css({
+      //      "background-size": "cover",
+      //      "background-position": "center center",
+      //      "border-radius": "0",
+      //      "border": "none",
+      //    })
 
-       }
+      //  }
      })
    }
  }
@@ -841,3 +841,17 @@
       var x = window.matchMedia("(max-width: 768px)")
       skillPosition(x) // Call listener function at run time
       x.addListener(skillPosition) // Attach listener function on state changes
+
+
+
+      var centerX = this.innerWidth/2 ;
+var centerY = this.innerHeight/2;
+$("#home-page").mousemove(contraDirection)
+function contraDirection(event) {
+  var circle = document.querySelector("svg"); 
+  var x = event.clientX;
+  var y = event.clientY;  
+    if (x > 0 && y > 0) { 
+      circle.style.transform= "translate3d("+Math.floor(x/centerX*(-30))+"px, "+Math.floor(y/centerY*(-30))+"px, 0px)"
+    } 
+}

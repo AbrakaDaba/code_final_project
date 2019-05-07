@@ -47,6 +47,26 @@ body #background-box {
   background-size: contain;
   overflow: auto;
   background-repeat: no-repeat;
+  position: relative;
+}
+
+body #background-box svg {
+  top: 6em;
+  left: calc(50% - 250px);
+  position: absolute;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 250px rgba(15, 15, 15, 0.4);
+          box-shadow: 0px 0px 250px rgba(15, 15, 15, 0.4);
+  -webkit-transition: all .3s fadeout;
+  transition: all .3s fadeout;
+}
+
+body #background-box svg circle {
+  fill: rgba(255, 255, 255, 0);
+  stroke: rgba(255, 255, 255, 0);
+  fill: var(--my-bg-second);
+  stroke: var(--my-bg-main);
+  opacity: 0.1;
 }
 
 a {
@@ -191,7 +211,7 @@ a {
 }
 
 .welcome-note h2 {
-  font-size: calc(3vw + 15px + 1em);
+  font-size: calc(3vw + 6px + 1em);
 }
 
 .welcome-note h2 .hey {
@@ -816,8 +836,7 @@ header ul .my-logo, #headerHelper ul .my-logo {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
-  -webkit-box-shadow: 0 0 15px var(--my-bg-second);
-          box-shadow: 0 0 15px var(--my-bg-second);
+  background-color: rgba(125, 125, 125, 0.5);
   width: 47px;
   height: 47px;
   z-index: 5;
@@ -899,7 +918,7 @@ header {
 
 #works .work-wrapper .work-box h3 {
   padding-left: 55px;
-  font-size: 18px;
+  font-size: 1.5em;
   position: relative;
   text-align: left;
   margin: 25px 0 70px 0;
@@ -926,7 +945,7 @@ header {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 16px;
   border-radius: var(--my-shape);
 }
 
