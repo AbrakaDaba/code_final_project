@@ -858,7 +858,7 @@ function contraDirection(event) {
 
 $(".cooking").click(function(){  
   $(".photo").css({ 
-    backgroundImage: 'url(./../img/magic_bean_by_David.jpg)',
+    backgroundImage: 'url(././img/magic_bean_by_David.jpg)',
     // backgroundPosition: "center 5%",
     // backgroundSize: "auto 100%",
     backgroundColor:"rgb(31, 19, 2)"
@@ -883,11 +883,11 @@ $(".cooking").click(function(){
   
   setTimeout(function(){
     $(".photo").css({ 
-    backgroundImage: 'url(./../img/abrakaDaba-removebg.png)',
+    backgroundImage: 'url(././img/abrakaDaba-removebg.png)',
     backgroundPosition: "center top",
     backgroundSize: "cover",
     backgroundColor: "var(--my-bg-second)",
   })
   $(".fire").hide();
-  }, 5000)
+  }, 15000)
 })
