@@ -13,7 +13,7 @@
  })
 
  if (typeof (window.localStorage) == "undefined" || !localStorage.styles || localStorage.styles == 'undefined' || localStorage.styles == "null" || typeof (window.localStorage) == "undefined") {
-   // if (typeof(window.localStorage.styles)=="undefined") {   
+    
    styles = [];
    console.log(typeof (styles));
 
@@ -24,15 +24,13 @@
 
  // localStorage.clear()
  if (typeof (localStorage) == "undefined" || !localStorage.users || localStorage.users == 'undefined' || localStorage.users == "null") {
-   // if (typeof(localStorage) == "undefined") {
+    
    users = [];
-   id = 0;
-   // localStorage.clear()
+   id = 0; 
  } else {
    var myUsers = localStorage.getItem("users");
    var users = JSON.parse(myUsers);
-   id = users.length;
-   // localStorage.clear()
+   id = users.length; 
  };
  window.onload = function () {
    fontColor();
@@ -44,8 +42,7 @@
  window.onscroll = function () {
    headeronScroll()
    yPosition = window.pageYOffset;
-   yesNoPositioning()
-   console.log(yPosition);
+   yesNoPositioning() 
  };
 
  function headeronScroll() {
@@ -298,13 +295,12 @@
  document.querySelector(".fav-item3").onclick = function () {
    clearInterval(fadeInterval);
    $('body').css("background", "");
-   myStyles.styleSetter(16, "#eee", "red", "diamond");
+   myStyles.styleSetter(0, "Darky", 12, "#129887", "rgb(31, 37, 64)", "endless-constellation", "0%", "coldiac", "ntr");
    console.log(myStyles);
 
  }
 
- /////// MAGNIFIER ///////
- // $("#magnifier").on("change",heightCalculator)
+ /////// MAGNIFIER /////// 
 
  function f_magnifier() {
    var magnif_value = document.getElementById('magnifier').value;
@@ -343,32 +339,26 @@
    myRoot.style.setProperty('--my-bg-main', mainColor);
    myRoot.style.setProperty('--my-bg-second', secondColor);
    myStyles.changeColor(mainColor);
-   myStyles.changeScolor(secondColor);
-   // $('body').css("background", "none");
+   myStyles.changeScolor(secondColor); 
    $('body').attr("class", el.currentTarget.className);
    setTimeout(fontColor, 280);
  }
  // }
 
 
- //////// PATERNS ///////
- // function patterns(){ 
+ //////// PATERNS ///////  
  $("#patterns").children().click(function (el) {
    el.preventDefault();
    clearInterval(fadeInterval);
-   $('body').css("background", "");
-   // $('body').css("background-image", $(this).css("background-image"));
+   $('body').css("background", ""); 
    $('body').attr("class", el.currentTarget.className);
-   var bodyBg = $('body').css("background-color");
-   // myRoot.style.setProperty('--my-bg-second', bodyBg);
-   myRoot.style.setProperty('--my-bg-second', $(this).css("background-color"));
-   // console.log(bodyBg, this);
-   // var img =  $(this).css("background-image");
+   var bodyBg = $('body').css("background-color"); 
+   myRoot.style.setProperty('--my-bg-second', $(this).css("background-color")); 
    myStyles.changeClass(el.currentTarget.className);
    console.log(myStyles);
    setTimeout(fontColor, 280);
  })
- // }
+  
 
  ////// COLOR FADING //////
  $("#fade").click(colorFading)
@@ -467,12 +457,9 @@
 
        el.children[1].style.opacity = "1";
        el.children[1].style.paddingLeft = "123px";
-       el.children[1].style.letterSpacing = "0px";
-       // el.children[1].style.fontSize = "3em"
-       // el.children[1].style.fontSize = "2em"
+       el.children[1].style.letterSpacing = "0px"; 
        $(el).css("box-shadow", "0px 0px 7px rgba(0,0,0,.7)");
-
-       // console.log(document.querySelector('.bg-doors').children);
+ 
        document.querySelectorAll('.door').forEach((elem) => {
          elem.style.width = "0%";
          elem.style.transition = ".5s";
@@ -594,8 +581,7 @@
      users.forEach(function (el) {
        console.log(loginInfo.userName, el.userName)
        if (loginInfo.userName == el.userName) {
-         messageBox("Sorry... username already taken")
-         // $('#sign-in-form').trigger("reset")
+         messageBox("Sorry... username already taken") 
          return
        } else {
          $(".form-signin").animate({
@@ -664,7 +650,7 @@
            savingTheme(userId)
            $('.theme-name').click(startTheme)
            $('.remove').click(deleteTheme)
-           // return
+           
          } else {
            $("#incorrect")
              .css({
@@ -748,8 +734,7 @@
  }
 
  ////// DELETING THEME //////
- function deleteTheme(el) {
-   // styles.forEach(function (elem) {
+ function deleteTheme(el) { 
    for (i = 0; i < styles.length; i++) {
      if (styles[i].style_name == el.target.previousSibling.id) {
        styles.splice(i, 1);
@@ -765,8 +750,7 @@
 
 
  ///////   WORK PREVIEW   ////////
- $(".work-preview").click(function (el) {
-   // $(".work-preview").next().hide();
+ $(".work-preview").click(function (el) { 
    $(el.target).next().slideDown();
    if($(window).width()<768){
      $('html, body').animate({
