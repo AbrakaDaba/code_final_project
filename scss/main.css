@@ -1899,9 +1899,40 @@ header {
   }
   #works .work-wrapper .work-box .flex-box {
     width: 30%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #works .work-wrapper .work-box .flex-box h3 {
+    font-size: 2em;
+    line-height: 50px;
+    padding-left: 70px;
+  }
+  #works .work-wrapper .work-box .flex-box h3:before {
+    width: 50px;
+    height: 50px;
+    font-size: 1em;
   }
   #works .work-wrapper .work-box .flex-box .work-preview {
     margin-left: 50px;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  #works .work-wrapper .work-box .flex-box .work-preview:after {
+    font-family: var(--font-paragraph);
+    font-weight: bold;
+  }
+  #works .work-wrapper .work-box .flex-box h4 {
+    font-size: 1.3em;
+  }
+  #works .work-wrapper .work-box .flex-box .more-about p {
+    font-size: 1.2em;
   }
   #works .work-wrapper .work-box .mob {
     display: block;
@@ -1982,7 +2013,7 @@ header {
     font-size: 2.3em;
   }
   #works .work-wrapper .work-box .mob {
-    border-radius: calc(3.2em + 20px);
+    border-radius: calc(3.2em + 10px);
   }
 }
 
@@ -2001,6 +2032,29 @@ header {
   #works h3,
   #skills h3 {
     font-size: 3.5em;
+  }
+  #works .work-wrapper .work-box .flex-box h3 {
+    font-size: 2.3em;
+    line-height: 60px;
+    padding-left: 80px;
+  }
+  #works .work-wrapper .work-box .flex-box h3:before {
+    width: 60px;
+    height: 60px;
+    font-size: 1.2em;
+  }
+  #works .work-wrapper .work-box .flex-box .work-preview {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+  }
+  #works .work-wrapper .work-box .flex-box h4 {
+    font-family: var(--font-heading);
+    font-size: 1.6em;
+  }
+  #works .work-wrapper .work-box .flex-box .more-about p {
+    font-family: var(--font-paragraph);
+    font-size: 1.4em;
+    line-height: 1.8;
   }
   #works .work-wrapper .work-box .mob {
     border-radius: calc(3.2em + 30px);

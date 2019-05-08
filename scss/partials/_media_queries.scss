@@ -66,13 +66,32 @@
                 justify-content: space-evenly; 
                 .flex-box {
                     width: 30%;
-
+                    justify-content: space-around;
+                    display: flex;
+                    flex-direction: column;
+                    h3{
+                        font-size: 2em;
+                        line-height: 50px;
+                        padding-left: 70px;
+                        &:before{
+                            width: 50px;
+    height: 50px;
+                        font-size: 1em;
+                        }
+                    }
                     .work-preview {
                         margin-left: 50px;
+                        transform: scale(1.2);
+                        &:after{
+                            font-family: var(--font-paragraph);
+                            font-weight: bold;
+                        }
                     }
-
+h4{
+    font-size: 1.3em;
+}
                     .more-about p {
-                        // width: 30%;
+                        font-size: 1.2em;
                     }
 
                 }
@@ -175,7 +194,7 @@
         .work-wrapper { 
             .work-box { 
                 .mob {
-                    border-radius: calc(3.2em + 20px);
+                    border-radius: calc(3.2em + 10px);
                 }
             }
         }
@@ -210,6 +229,31 @@
     #works {
         .work-wrapper { 
             .work-box { 
+                .flex-box{ 
+                    h3{
+                        font-size: 2.3em;
+                        line-height: 60px;
+                        padding-left: 80px;
+                        &:before{
+                            width: 60px;
+    height: 60px;
+                        font-size: 1.2em;
+                        }
+                    }
+                .work-preview{
+                    
+                    transform: scale(1.4);
+                }
+                h4{
+                    font-family: var(--font-heading);
+                    font-size: 1.6em;
+                }
+                .more-about p{
+                    font-family: var(--font-paragraph);
+                    font-size: 1.4em;
+                    line-height: 1.8;
+                }
+            }
                 .mob {
                     border-radius: calc(3.2em + 30px);
                 }
