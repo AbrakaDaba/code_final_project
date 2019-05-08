@@ -58,38 +58,46 @@
     #works {
         .work-wrapper {
             flex-direction: column;
+            overflow-x: auto;
 
             .work-box {
                 padding: 50px 30px;
                 width: 100%;
                 display: flex;
-                justify-content: space-evenly; 
+                justify-content: space-evenly;
+
                 .flex-box {
                     width: 30%;
                     justify-content: space-around;
                     display: flex;
                     flex-direction: column;
-                    h3{
+
+                    h3 {
                         font-size: 2em;
                         line-height: 50px;
                         padding-left: 70px;
-                        &:before{
+
+                        &:before {
                             width: 50px;
-    height: 50px;
-                        font-size: 1em;
+                            height: 50px;
+                            font-size: 1em;
                         }
                     }
+
                     .work-preview {
                         margin-left: 50px;
                         transform: scale(1.2);
-                        &:after{
+
+                        &:after {
                             font-family: var(--font-paragraph);
                             font-weight: bold;
                         }
                     }
-h4{
-    font-size: 1.3em;
-}
+
+                    h4 {
+                        font-size: 1.3em;
+                    }
+
                     .more-about p {
                         font-size: 1.2em;
                     }
@@ -101,23 +109,25 @@ h4{
                     position: relative;
                     padding-bottom: 56.25%;
                     padding-top: 35px;
-                    height: 100%; 
+                    height: 100%;
                     overflow: hidden;
                     width: 27vw;
                     background-repeat: no-repeat;
                     background-position: center top;
                     background-size: cover;
-                    background-image: url("../../img/iphone.svg");
+                    background-image: url("./../img/iphone.svg");
                     box-shadow: -20px -10px 30px #000;
                     border-radius: calc(2.2em + 10px);
+
                     iframe {
                         position: absolute;
                         top: 5.8vw;
-                        left: 3.5%;
-                        width: 94%;
+                        left: 3.65%;
+                        width: 93.5%;
                         height: 78%;
                         border: none;
-                        body{
+
+                        body {
                             overflow-x: hidden;
                             margin-right: -10px;
                         }
@@ -191,8 +201,8 @@ h4{
     }
 
     #works {
-        .work-wrapper { 
-            .work-box { 
+        .work-wrapper {
+            .work-box {
                 .mob {
                     border-radius: calc(3.2em + 10px);
                 }
@@ -225,47 +235,51 @@ h4{
             font-size: 3.5em;
         }
     }
- 
+
     #works {
-        .work-wrapper { 
-            .work-box { 
-                .flex-box{ 
-                    h3{
+        .work-wrapper {
+            .work-box {
+                .flex-box {
+                    h3 {
                         font-size: 2.3em;
                         line-height: 60px;
                         padding-left: 80px;
-                        &:before{
+
+                        &:before {
                             width: 60px;
-    height: 60px;
-                        font-size: 1.2em;
+                            height: 60px;
+                            font-size: 1.2em;
                         }
                     }
-                .work-preview{
-                    
-                    transform: scale(1.4);
+
+                    .work-preview {
+
+                        transform: scale(1.4);
+                    }
+
+                    h4 {
+                        font-family: var(--font-heading);
+                        font-size: 1.6em;
+                    }
+
+                    .more-about p {
+                        font-family: var(--font-paragraph);
+                        font-size: 1.4em;
+                        line-height: 1.8;
+                    }
                 }
-                h4{
-                    font-family: var(--font-heading);
-                    font-size: 1.6em;
-                }
-                .more-about p{
-                    font-family: var(--font-paragraph);
-                    font-size: 1.4em;
-                    line-height: 1.8;
-                }
-            }
+
                 .mob {
                     border-radius: calc(3.2em + 30px);
                 }
             }
         }
     }
-            
- 
+
+
     #about {
         .photo {
 
-            // background-position: 10% 65%;
             .fire {
                 width: 32%;
                 bottom: 25px;
@@ -275,7 +289,7 @@ h4{
         }
 
         .aboutme {
-            padding: 30px 50px 30px 50px;
+            padding: 30px 40px 30px 40px;
 
             h3 {
                 font-size: 3.5em;
@@ -283,10 +297,10 @@ h4{
         }
 
         p.my-text-font {
-            font-size: 2.5em;
+            font-size: 2.3em;
 
             span:last-of-type {
-                line-height: 60px;
+                line-height: 50px;
             }
         }
 

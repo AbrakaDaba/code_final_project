@@ -1886,6 +1886,7 @@ header {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    overflow-x: auto;
   }
   #works .work-wrapper .work-box {
     padding: 50px 30px;
@@ -1945,7 +1946,7 @@ header {
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
-    background-image: url("../../img/iphone.svg");
+    background-image: url("./../img/iphone.svg");
     -webkit-box-shadow: -20px -10px 30px #000;
             box-shadow: -20px -10px 30px #000;
     border-radius: calc(2.2em + 10px);
@@ -1953,8 +1954,8 @@ header {
   #works .work-wrapper .work-box .mob iframe {
     position: absolute;
     top: 5.8vw;
-    left: 3.5%;
-    width: 94%;
+    left: 3.65%;
+    width: 93.5%;
     height: 78%;
     border: none;
   }
@@ -2065,16 +2066,16 @@ header {
     left: 32%;
   }
   #about .aboutme {
-    padding: 30px 50px 30px 50px;
+    padding: 30px 40px 30px 40px;
   }
   #about .aboutme h3 {
     font-size: 3.5em;
   }
   #about p.my-text-font {
-    font-size: 2.5em;
+    font-size: 2.3em;
   }
   #about p.my-text-font span:last-of-type {
-    line-height: 60px;
+    line-height: 50px;
   }
 }
 /*# sourceMappingURL=main.css.map */
