@@ -1921,14 +1921,15 @@ header {
   }
   #works .work-wrapper .work-box .mob iframe {
     position: absolute;
-    top: 5.4vw;
-    left: 4.5%;
-    width: 92%;
-    height: 79%;
+    top: 5.8vw;
+    left: 3.5%;
+    width: 94%;
+    height: 78%;
     border: none;
   }
   #works .work-wrapper .work-box .mob iframe body {
     overflow-x: hidden;
+    margin-right: -10px;
   }
   #about {
     -webkit-box-orient: horizontal;
@@ -1980,6 +1981,9 @@ header {
   .skill .text {
     font-size: 2.3em;
   }
+  #works .work-wrapper .work-box .mob {
+    border-radius: calc(3.2em + 20px);
+  }
 }
 
 @media only screen and (min-width: 1440px) {
@@ -1997,6 +2001,9 @@ header {
   #works h3,
   #skills h3 {
     font-size: 3.5em;
+  }
+  #works .work-wrapper .work-box .mob {
+    border-radius: calc(3.2em + 30px);
   }
   #about .photo .fire {
     width: 32%;
