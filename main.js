@@ -3,8 +3,8 @@
  var id;
  var yPosition = window.pageYOffset;
  var myRoot = document.documentElement;
-  var yesEvent = "click"
-var screenLarge = true;
+ var yesEvent = "click"
+ var screenLarge = true;
 
  window.addEventListener("beforeunload", function () {
    window.localStorage.setItem("styles", JSON.stringify(styles));
@@ -38,7 +38,7 @@ var screenLarge = true;
    fontColor();
  }
 
- 
+
 
  ////// ON SCROLL - HEADER AND YES/NO GEAR BUTTONS ///////
  window.onscroll = function () {
@@ -97,7 +97,8 @@ var screenLarge = true;
  })
 
  $(window).resize(yesNoPositioning)
-   function yesNoPositioning () {
+
+ function yesNoPositioning() {
    $("#no").css("transition", ".5s")
    setTimeout(function () {
      var a, b, c, x;
@@ -153,13 +154,13 @@ var screenLarge = true;
      $("#yes").hide();
      $("#runningYes").addClass("flex-el");
      $("#runningYes").on(yesEvent, function () {
-         angle = angle + 260
-         $("#runningYes").css("transform", "rotate(" + angle + "deg)");
+       angle = angle + 260
+       $("#runningYes").css("transform", "rotate(" + angle + "deg)");
 
-         $("#runningYes").css("left", Math.floor(Math.random() * viewportWidth * 0.75) + "px");
-         $("#runningYes").css("top", Math.floor(Math.random() * viewportHeight * 0.75) + yPosition + "px");
-       })
-     
+       $("#runningYes").css("left", Math.floor(Math.random() * viewportWidth * 0.75) + "px");
+       $("#runningYes").css("top", Math.floor(Math.random() * viewportHeight * 0.75) + yPosition + "px");
+     })
+
    }, 4000)
 
  }
@@ -280,17 +281,17 @@ var screenLarge = true;
 
  ///// DAVIDS FAVORITE ///////
  document.querySelector(".fav-item1").onclick = function () {
-  clearInterval(fadeInterval);
-  $('body').css("background", "");
-  myStyles.styleSetter(0,"River blue", 11, "#129887", "#293f58", "radial","0%","coldiac", "ntr");
-  console.log(myStyles);
+   clearInterval(fadeInterval);
+   $('body').css("background", "");
+   myStyles.styleSetter(0, "River blue", 11, "#129887", "#293f58", "radial", "0%", "coldiac", "ntr");
+   console.log(myStyles);
 
 
  }
  document.querySelector(".fav-item2").onclick = function () {
    clearInterval(fadeInterval);
    $('body').css("background", "");
-   myStyles.styleSetter(0,"Shadow'n'White", 13, "#cbd1da", "#303030", "linear_ltr","50%","montserrat", "juliussans");
+   myStyles.styleSetter(0, "Shadow'n'White", 13, "#cbd1da", "#303030", "linear_ltr", "50%", "montserrat", "juliussans");
    console.log(myStyles);
 
  }
@@ -399,22 +400,7 @@ var screenLarge = true;
      shapes[i].addEventListener("click", function (el) {
        myRoot.style.setProperty('--my-shape', getComputedStyle(el.target).borderRadius)
        myStyles.changeShape(getComputedStyle(el.target).borderRadius)
-      //  if (getComputedStyle(el.target).borderRadius == "50%") {
-      //    $('#my-logo').css({
-      //      "background-size": "111%",
-      //      "background-position": "-1px -2px",
-      //      "border-radius": "50%",
-      //      "border": "1px solid black"
-      //    })
-      //  } else {
-      //    $('#my-logo').css({
-      //      "background-size": "cover",
-      //      "background-position": "center center",
-      //      "border-radius": "0",
-      //      "border": "none",
-      //    })
 
-      //  }
      })
    }
  }
@@ -434,13 +420,13 @@ var screenLarge = true;
 
    if (rgbSumm > 490) {
      header.style.color = "#000";
-     $('#about, .about').css("color", "#000000");
+     $('#about, .about, #intro, #works>h3').css("color", "#000000");
      $(".brush-box").first().css("background-image", "url(././img/brush.svg)");
      $("#my-logo").css("background-image", "url(././img/david_damnjanovic_logo.svg)");
 
    } else {
-     header.style.color = "#fff";
-     $('#about, .about').css("color", "#fff");
+     header.style.color = "#ddd";
+     $('#about, .about, #intro,#works h3').css("color", "#ddd");
      $(".brush-box").first().css("background-image", "url(././img/brush-white.svg)");
      $("#my-logo").css("background-image", "url(././img/david_damnjanovic_logo_white.svg)");
      console.log($(".brush-box").first().css("background-image"));
@@ -713,7 +699,7 @@ var screenLarge = true;
          var fontHead = getComputedStyle(document.documentElement).getPropertyValue('--font-heading');
          var fontPara = getComputedStyle(document.documentElement).getPropertyValue('--font-paragraph');
          var savedStyle = new Styles(userId, themeName, size, color, scolor, bodyClass, shape, fontHead, fontPara);
-         styles.push(savedStyle); 
+         styles.push(savedStyle);
          $('.theme-name').click(startTheme)
          $('.remove').click(deleteTheme)
        } else {
@@ -765,7 +751,7 @@ var screenLarge = true;
  function deleteTheme(el) {
    // styles.forEach(function (elem) {
    for (i = 0; i < styles.length; i++) {
-     if (styles[i].style_name == el.target.previousSibling.id) { 
+     if (styles[i].style_name == el.target.previousSibling.id) {
        styles.splice(i, 1);
        el.target.parentNode.parentNode.removeChild(el.target.parentNode);
 
@@ -780,114 +766,119 @@ var screenLarge = true;
 
  ///////   WORK PREVIEW   ////////
  $(".work-preview").click(function (el) {
-       // $(".work-preview").next().hide();
-       $(el.target).next().slideDown();
+   // $(".work-preview").next().hide();
+   $(el.target).next().slideDown();
+   if($(window).width()<768){
+     $('html, body').animate({
+       scrollTop: $("#work-height").offset().top - 70
+     }, 2000);
+   }
+   $(el.target).children(".diagonal-line1").css({
+     width: "300px",
+     left: "-50%",
+     transform: "rotate(45deg)"
+   })
+   $(el.target).animate({marginLeft : "30px"},2000);
+   $(el.target).children(".diagonal-line2").css({
+     width: "300px",
+     left: "-50%",
+     transform: "rotate(-45deg)"
+   })
+   $(el.target).addClass("visit-class");
+   if ($(el.target).hasClass("agg")) {
+     $(el.target).click(function () {
+       window.open('https://www.aggios.com', '_blank')
+     })
+   }
+   if ($(el.target).hasClass("can")) {
+     $(el.target).click(function () {
+       window.open('https://abrakadaba.github.io/cancan', '_blank')
+     })
+   }
+   if ($(el.target).hasClass("rush")) {
+     $(el.target).click(function () {
+       window.open('https://abrakadaba.github.io/rush', '_blank')
+     })
+   }
+   if ($(el.target).hasClass("trappo")) {
+     $(el.target).click(function () {
+       window.open('https://abrakadaba.github.io/trap', '_blank')
+     })
+   }
+ })
+
+ /////// SKILLS  - VERTICAL POSITION /////
+ var twoFoo = true;
+ function skillPosition(x) {
+   if (x.matches) { // If media query matches
+    if(twoFoo){ 
+     $(".skill").click(function (el) { 
        $('html, body').animate({
-         scrollTop: $("#work-height").offset().top - 70 
-       }, 2000);
-       $(el.target).children(".diagonal-line1").css({
-         width: "300px",
-         left: "-50%",
-         transform: "rotate(45deg)"
-       })
-       $(el.target).children(".diagonal-line2").css({
-         width: "300px",
-         left: "-50%",
-         transform: "rotate(-45deg)"
-       })
-       $(el.target).addClass("visit-class");
-       if ($(el.target).hasClass("agg")) {
-         $(el.target).click(function () {
-           window.open('https://www.aggios.com', '_blank')
-         })
-       }
-       if ($(el.target).hasClass("can")) {
-         $(el.target).click(function () {
-           window.open('https://abrakadaba.github.io/cancan', '_blank')
-         })
-       }
-       if ($(el.target).hasClass("rush")) {
-         $(el.target).click(function () {
-           window.open('https://abrakadaba.github.io/rush', '_blank')
-         })
-       }
-       if ($(el.target).hasClass("trappo")) {
-         $(el.target).click(function () {
-           window.open('https://abrakadaba.github.io/trap', '_blank')
-         })
-       }
-      })
-      
-/////// SKILLS  - VERTICAL POSITION /////
-      function skillPosition(x) {
-        if (x.matches) { // If media query matches
-          $(".skill").click(function () {
-            $('html, body').animate({
-              scrollTop: $("#skills").offset().top ,
-            }, 1500); 
-          }) 
-          screenLarge = false;
-        }  else{
-          console.log("uauuu");
-          yesEvent = "mouseover";
-          $(".skill").click(function (el) {
-            $('html, body').animate({
-              scrollTop: $(el.target).offset().top-220 ,
-            }, 1000); 
-          }) 
-        }
-      }
-      
-      var x = window.matchMedia("(max-width: 768px)")
-      skillPosition(x) // Call listener function at run time
-      x.addListener(skillPosition) // Attach listener function on state changes
+         scrollTop: $("#skills").offset().top,
+       }, 500);
+     })
+    }
+     screenLarge = false;
+   } else {
+     twoFoo = false; 
+     yesEvent = "mouseover";
+     $(".skill").click(function (el) {
+       $('html, body').animate({
+        //  scrollTop: $(el.target).offset().top-70
+       }, 500);
+     })
+   }
+ } 
+ var x = window.matchMedia("(max-width: 768px)")
+ skillPosition(x) // Call listener function at run time
+ x.addListener(skillPosition) // Attach listener function on state changes
+
+
+/////// CONTRA DIRECTION EFFECT ///////
+ var centerX = this.innerWidth / 2;
+ var centerY = this.innerHeight / 2;
+ $("#home-page").mousemove(contraDirection)
+
+ function contraDirection(event) {
+   var circle = document.querySelector("svg");
+   var x = event.clientX;
+   var y = event.clientY;
+   if (x > 0 && y > 0) {
+     circle.style.transform = "translate3d(" + Math.floor(x / centerX * (-30)) + "px, " + Math.floor(y / centerY * (-30)) + "px, 0px)"
+   }
+ }
 
 
 
-      var centerX = this.innerWidth/2 ;
-var centerY = this.innerHeight/2;
-$("#home-page").mousemove(contraDirection)
-function contraDirection(event) {
-  var circle = document.querySelector("svg"); 
-  var x = event.clientX;
-  var y = event.clientY;  
-    if (x > 0 && y > 0) { 
-      circle.style.transform= "translate3d("+Math.floor(x/centerX*(-30))+"px, "+Math.floor(y/centerY*(-30))+"px, 0px)"
-    } 
-}
+ ///////  COOKING EFFECT ////////
+ $(".cooking").click(function () {
+   $(".photo").css({
+     backgroundImage: 'url(././img/magic_bean_by_David.jpg)',
+     backgroundColor: "rgb(31, 19, 2)"
+   })
+   if (!screenLarge) {
+     $(".photo").css({
+       backgroundPosition: "center 5%",
+       backgroundSize: "cover",
+     }) 
+   } else {
+     $(".photo").css({
+       backgroundPosition: "center top",
+       backgroundSize: "auto 100%",
+     })
+   }
+   $(".fire").show();
+   $('html, body').animate({
+     scrollTop: $(".photo").offset().top
+   }, 2000);
 
-$(".cooking").click(function(){  
-  $(".photo").css({ 
-    backgroundImage: 'url(././img/magic_bean_by_David.jpg)',
-    // backgroundPosition: "center 5%",
-    // backgroundSize: "auto 100%",
-    backgroundColor:"rgb(31, 19, 2)"
-  })
-  if(!screenLarge){
-    $(".photo").css({
-      backgroundPosition: "center 5%",
-      backgroundSize: "cover",
-    })
-    console.log("screenLarge")
-  }else{
-    $(".photo").css({
-      backgroundPosition: "center top",
-      backgroundSize: "auto 100%",
-    })
-    console.log("screenSmall")
-  }
-  $(".fire").show();
-  $('html, body').animate({
-    scrollTop: $(".photo").offset().top
-  }, 2000); 
-  
-  setTimeout(function(){
-    $(".photo").css({ 
-    backgroundImage: 'url(././img/abrakaDaba-removebg.png)',
-    backgroundPosition: "center top",
-    backgroundSize: "cover",
-    backgroundColor: "var(--my-bg-second)",
-  })
-  $(".fire").hide();
-  }, 15000)
-})
+   setTimeout(function () {
+     $(".photo").css({
+       backgroundImage: 'url(././img/abrakaDaba-removebg.png)',
+       backgroundPosition: "center top",
+       backgroundSize: "cover",
+       backgroundColor: "var(--my-bg-second)",
+     })
+     $(".fire").hide();
+   }, 6000)
+ })

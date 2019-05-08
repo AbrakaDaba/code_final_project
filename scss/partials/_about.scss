@@ -17,7 +17,7 @@
   // }
   .aboutme {
     order: 1;
-    padding: 30px;
+    padding: 30px 15px 30px 15px;
     color: var(--my-text);
     box-sizing: border-box;
     display: flex;
@@ -37,6 +37,11 @@
       .cooking {
         cursor: pointer;
         color: #61dafb;
+        text-decoration: underline;
+        &:hover{
+          color: #4090a7;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -95,7 +100,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     display: inline-block;
-    border-radius: 50%;
+    border-radius: var(--my-shape);
     cursor: pointer;
     &:hover{
       background-color: #61dafb;
@@ -105,25 +110,17 @@
 
   .email {
     background-image: url(./../img/socnet/email.png);
-    background-size: 115%;
+    background-size: 109%;
   }
   .linkedin {
-    background-image: url(./../img/socnet/linkedin.svg); 
-    opacity: .9;
+    background-image: url(./../img/socnet/linkedin.svg);  
   }
   .github {
-    background-image: url(./../img/socnet/github.svg); 
-    opacity: .9;
+    background-image: url(./../img/socnet/github.svg);  
   }
 }
 
-// .photo:hover {
-//   background-image: url("./../img/magic_bean_by_David.jpg");
-
-//   .fire {
-//     display: block;
-//   }
-// }
+ 
 
 
 

@@ -255,7 +255,8 @@ a {
   font-size: 1.5em;
   line-height: 1.5em;
   color: #fffef0;
-  text-shadow: 0px 0px 5px black;
+  -webkit-transition: all 0.3s cubic-bezier(0.37, 0.31, 0.2, 0.85) !important;
+  transition: all 0.3s cubic-bezier(0.37, 0.31, 0.2, 0.85) !important;
 }
 
 #intro span {
@@ -267,14 +268,7 @@ a {
 
 #intro span:hover {
   display: inline-block;
-  color: #e1deae;
-  position: relative;
-  bottom: 1px;
-  -webkit-transition: .1s;
-  transition: .1s;
-  text-shadow: 0px 2px 4px black;
-  -webkit-transition: background-color .3s;
-  transition: background-color .3s;
+  color: #bef2ff;
 }
 
 .question {
@@ -912,8 +906,8 @@ header {
 #works .work-wrapper .work-box {
   width: 85%;
   min-width: 85%;
-  color: #bbb;
-  background-color: rgba(0, 0, 0, 0.6);
+  color: #ddd;
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 1px 15px;
 }
 
@@ -936,7 +930,7 @@ header {
   background-color: rgba(0, 0, 0, 0.3);
   top: 0;
   left: 0;
-  border: 1px solid var(--my-bg-second);
+  border: 1px solid #fff;
   font-family: var(--font-heading);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1119,6 +1113,10 @@ header {
           transform: scale(0.985);
   -webkit-transition: .1s;
   transition: .1s;
+}
+
+#works .work-wrapper .work-box .mob {
+  display: none;
 }
 
 #skills {
@@ -1356,7 +1354,7 @@ header {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
-  padding: 30px;
+  padding: 30px 15px 30px 15px;
   color: var(--my-text);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1385,6 +1383,12 @@ header {
 #about .aboutme p .cooking {
   cursor: pointer;
   color: #61dafb;
+  text-decoration: underline;
+}
+
+#about .aboutme p .cooking:hover {
+  color: #4090a7;
+  cursor: pointer;
 }
 
 #about .photo {
@@ -1433,7 +1437,7 @@ header {
   background-repeat: no-repeat;
   background-position: center center;
   display: inline-block;
-  border-radius: 50%;
+  border-radius: var(--my-shape);
   cursor: pointer;
 }
 
@@ -1445,17 +1449,15 @@ header {
 
 #about .email {
   background-image: url(./../img/socnet/email.png);
-  background-size: 115%;
+  background-size: 109%;
 }
 
 #about .linkedin {
   background-image: url(./../img/socnet/linkedin.svg);
-  opacity: .9;
 }
 
 #about .github {
   background-image: url(./../img/socnet/github.svg);
-  opacity: .9;
 }
 
 .custom-nav {
@@ -1879,6 +1881,55 @@ header {
   #skills .tns .skill .text {
     display: block;
   }
+  #works .work-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #works .work-wrapper .work-box {
+    padding: 50px 30px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  #works .work-wrapper .work-box .flex-box {
+    width: 30%;
+  }
+  #works .work-wrapper .work-box .flex-box .work-preview {
+    margin-left: 50px;
+  }
+  #works .work-wrapper .work-box .mob {
+    display: block;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    height: 100%;
+    overflow: hidden;
+    width: 27vw;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-image: url("../../img/iphone.svg");
+    -webkit-box-shadow: -20px -10px 30px #000;
+            box-shadow: -20px -10px 30px #000;
+    border-radius: calc(2.2em + 10px);
+  }
+  #works .work-wrapper .work-box .mob iframe {
+    position: absolute;
+    top: 5.4vw;
+    left: 4.5%;
+    width: 92%;
+    height: 79%;
+    border: none;
+  }
+  #works .work-wrapper .work-box .mob iframe body {
+    overflow-x: hidden;
+  }
   #about {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -1903,6 +1954,7 @@ header {
   }
   #about .aboutme {
     width: 50%;
+    padding: 30px;
   }
   #about .aboutme h3 {
     font-size: 2.5em;
@@ -1913,6 +1965,9 @@ header {
   #about p.my-text-font {
     font-size: 1.8em;
   }
+  #about p.my-text-font span:last-of-type {
+    line-height: 40px;
+  }
   #intro {
     font-size: 2.1em;
   }
@@ -1921,12 +1976,23 @@ header {
   }
 }
 
+@media only screen and (min-width: 1024px) {
+  .skill .text {
+    font-size: 2.3em;
+  }
+}
+
 @media only screen and (min-width: 1440px) {
   #message-box {
     font-size: 3vw;
   }
+  #home-page #intro {
+    font-size: 2.4em;
+    line-height: 1.2;
+    max-width: 1270px;
+  }
   #home-page .question {
-    padding: 30px 0px 60px 0px;
+    padding: 20px 0px 45px 0px;
   }
   #works h3,
   #skills h3 {
@@ -1937,11 +2003,17 @@ header {
     bottom: 25px;
     left: 32%;
   }
+  #about .aboutme {
+    padding: 30px 50px 30px 50px;
+  }
   #about .aboutme h3 {
     font-size: 3.5em;
   }
   #about p.my-text-font {
     font-size: 2.5em;
+  }
+  #about p.my-text-font span:last-of-type {
+    line-height: 60px;
   }
 }
 /*# sourceMappingURL=main.css.map */
