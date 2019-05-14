@@ -12,9 +12,9 @@ Koriscene tehnologije i alati:
 
 Opis projekta:
 Na prvi pogled ovo je klasican portfolio sajt u kome se nalaze informacije o meni: 
-Raniji projekti, vestine kojima vladam, CV, kontakt i sve ono sto inace krasi portfolio sajtove.
+raniji projekti, vestine kojima vladam, CV, kontakt podaci i sve ono sto inace krasi portfolio sajtove.
 Medjutim, posetilac ovog sajta u mogucnosti je da promeni njegov izgled.
-Mogu ce je registrovati se, logovati i snimiti svoju temu.
+Moguce je registrovati se, logovati i snimiti svoju temu.
 Informacije se cuvaju na Local Storage-u pa im je moguce pristupiti bilo kad.
 Teme se mogu dodavati, kao i brisati iz baze.
 
